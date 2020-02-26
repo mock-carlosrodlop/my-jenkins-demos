@@ -20,11 +20,9 @@ parameters:
     type: string
     displayName: Docker Registry to upload
 multibranch:
-  branchSource:
-    github:
-        apiUrl: https://github.beescloud.com/api/v3
-        repoOwner: support-team
-        repository: ${gh_repo}
+    branchSource:
+      git:
+        remote: ${gh_repo}
         credentialsId: ${gh_cred}
   # scanRepositoryInterval: 2 hours
-  markerFile: pom.xml
+  # markerFile: pom.xml
