@@ -19,6 +19,9 @@ parameters:
   - name: docker_registry
     type: string
     displayName: Docker Registry to upload
+  - name: dummy-variable
+    type: string
+    displayName: Dummy
 multibranch:
     branchSource:
       git:
