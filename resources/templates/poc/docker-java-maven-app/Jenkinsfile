@@ -6,7 +6,7 @@ library identifier: 'my-shared-libraries@master', retriever: modernSCM(
 def configYaml = """---
 k8_agent_yaml : 'maven_kaniko_pod.yaml'
 gh_cred : 'GHE-carlosrodlop'
-gh_repo : 'https://github.com/carlosrodlop/simple-app.git'
+gh_repo : 'https://github.beescloud.com/support-team/simple-app.git'
 gh_branch : 'develop'
 dockerfile_path : 'src/main/docker/Dockerfile'
 docker_registry : 'supportbeescloud'
