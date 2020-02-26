@@ -10,7 +10,7 @@ This repor was forked from [beedemo/workflowLibs](https://github.com/beedemo/wor
 * Jenkins Kubernetes plugins [examples](https://github.com/jenkinsci/kubernetes-plugin/tree/master/examples) for good practices.
 * The [simple-app](https://github.com/alecharp/simple-app) project from my colleague Adrien Lecharpentier
 
-## Shared Library
+## Shared Library ##
 
 ## Global Steps
 
