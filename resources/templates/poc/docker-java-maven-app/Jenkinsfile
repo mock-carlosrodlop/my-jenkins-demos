@@ -3,6 +3,8 @@ library identifier: 'my-shared-libraries@master', retriever: modernSCM(
    remote: 'https://github.com/carlosrodlop/my-pipeline-home.git',
    credentialsId: 'GH-carlosrodlop'])
 
+gitUrlValidator("fail")
+
 def configYaml = """---
 k8_agent_yaml : 'maven_kaniko_pod.yaml'
 gh_cred : 'GH-carlosrodlop'
