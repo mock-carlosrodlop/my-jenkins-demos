@@ -22,9 +22,7 @@ parameters:
 multibranch:
   branchSource:
     github:
-        apiUrl: https://github.beescloud.com/api/v3
+        apiUr￼i: https://github.beescloud.com/api/v3
         repoOwner: support-team
         repository: ${gh_repo}
         credentialsId: ${gh_cred}
-  # scanRepositoryInterval: 2 hours
-  markerFile: pom.xml
