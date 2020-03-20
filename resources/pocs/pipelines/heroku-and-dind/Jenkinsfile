@@ -26,7 +26,7 @@ spec:
     - "-c"
     env:
     - name: "HEROKU_API_KEY"
-      value: "836c03e7-6e88-487d-b74c-1d0c645b1963"
+      value: "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
     image: "wingrunr21/alpine-heroku-cli:latest"
     name: "heroku"
     tty: true
