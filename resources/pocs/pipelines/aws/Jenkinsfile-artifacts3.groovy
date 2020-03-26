@@ -1,4 +1,5 @@
-// resources/pocs/pipelines/aws/Jenkinsfile-withAWS.groovy
+// resources/pocs/pipelines/aws/Jenkinsfile-artifacts3.groovy
+def props 
 pipeline {
     agent {
         kubernetes {
@@ -12,9 +13,12 @@ pipeline {
     stages {
         stage('archiving into AWS s3') {
             steps {
-                def props = readJSON text: '{ "key": null, "a": "b" }', returnPojo: true
-                writeJSON file: "output.json", json: input, pretty: 4
-                archiveArtifacts "output.json"
+                script {
+                    props = readJSON text: '{ "DSE": "crodriguezlopez", "Title": "Lead" }', returnPojo: true
+                    sh "touch empty.txt"
+                }
+                writeJSON file: "output.json", json: props, pretty: 4
+                archiveArtifacts artifacts: "*.*", fingerprint: true
             }
         }
     }
