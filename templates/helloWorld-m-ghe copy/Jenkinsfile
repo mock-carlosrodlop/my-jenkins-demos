@@ -1,31 +1,37 @@
 pipeline {
-        agent none
-        options {
-            buildDiscarder(logRotator(numToKeepStr: "5", artifactNumToKeepStr: "5"))
+    agent none
+    options {
+    buildDiscarder(logRotator(numToKeepStr: "5", artifactNumToKeepStr: "5"))
+    }
+    stages {
+        stage("Skip Run?") {
+        when {
+            anyOf {
+                branch 'feature/build-in-jenkins-with-docker';
+                branch 'master'
+            }
         }
+        steps {
+            echo "Aborting Pipeline due to changes are coming from Template definition"
+            script {
+                currentBuild.result = "ABORTED"
+            }
+        }
+    }
+    stage("Run") {
+        when {
+            beforeAgent true
+            expression {
+                currentBuild.result != "ABORTED"
+            }
+        }
+        agent any
         stages {
-            stage ("Skip Run?") {     
-                when { not { branch 'feature/build-in-jenkins-with-docker' } }
+            stage("Test") {
                 steps {
-                    echo "Aborting Pipeline due to changes are coming from Template definition"
-                    script{
-                        currentBuild.result = "ABORTED"
-                    }
+                    echo "Do whatever!"
                 }
             }
-            stage ("Run") {
-                when {
-                    beforeAgent true
-                    expression { currentBuild.result != "ABORTED" }
-                }
-                agent any
-                stages {
-                    stage("Test") {
-                        steps {
-                            echo "Do whatever!"
-                        }
-                    }
-                  }
-              }
-      }
-}  
+        }
+    }
+}
