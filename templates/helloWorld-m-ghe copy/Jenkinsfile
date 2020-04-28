@@ -5,9 +5,7 @@ pipeline {
         }
         stages {
             stage ("Skip Run?") {     
-                when {
-                   when { not { branch 'feature/build-in-jenkins-with-docker' } }
-                }
+                when { not { branch 'feature/build-in-jenkins-with-docker' } }
                 steps {
                     echo "Aborting Pipeline due to changes are coming from Template definition"
                     script{
