@@ -1,0 +1,27 @@
+
+pipeline {
+    agent any 
+    
+    stages {
+        stage('Clone') {
+           when {
+                branch 'feature/build-in-jenkins-with-docker.'
+            } 
+            steps { 
+                script{
+                    try{
+                      checkout([
+                        $class: 'GitSCM',
+                        extensions: [[$class: 'CleanBeforeCheckout']],
+                        userRemoteConfigs: scm.userRemoteConfigs
+                      ])
+                     }catch (Exception err) {
+                        errorCode = err
+                        error('error in Git Checkout'+err)
+                        currentBuild.result = 'FAILURE'
+                    }
+                }   
+            }
+        }
+    }   
+}

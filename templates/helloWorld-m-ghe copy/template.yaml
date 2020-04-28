@@ -1,0 +1,18 @@
+version: 1
+type: pipeline-template
+templateType: MULTIBRANCH
+name: Multibranch Pipeline for Maven Docker Apps in Kubernetes 
+description: Continuos Integration pipeline multibranch to model Maven Docker Apps projects using a Kaniko agent
+parameters:
+  - name: gh_cred
+    displayName: GitHub Credential
+    type: credentials
+  - name: gh_repo
+    displayName: Github Repository URL 
+    type: string
+multibranch:
+  branchSource:
+    git:
+      remote: ${gh_repo}
+      credentialsId: ${gh_cred}
+  markerFile: pom.xml 
