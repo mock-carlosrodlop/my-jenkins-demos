@@ -1,27 +1,33 @@
-
 pipeline {
-    agent any 
-    
-    stages {
-        stage('Clone') {
-           when {
-                branch 'feature/build-in-jenkins-with-docker.'
-            } 
-            steps { 
-                script{
-                    try{
-                      checkout([
-                        $class: 'GitSCM',
-                        extensions: [[$class: 'CleanBeforeCheckout']],
-                        userRemoteConfigs: scm.userRemoteConfigs
-                      ])
-                     }catch (Exception err) {
-                        errorCode = err
-                        error('error in Git Checkout'+err)
-                        currentBuild.result = 'FAILURE'
-                    }
-                }   
-            }
+        agent none
+        options {
+            buildDiscarder(logRotator(numToKeepStr: "5", artifactNumToKeepStr: "5"))
         }
-    }   
-}
+        stages {
+            stage ("Skip Run?") {     
+                when {
+                   when { not { branch 'feature/build-in-jenkins-with-docker' } }
+                }
+                steps {
+                    echo "Aborting Pipeline due to changes are coming from Template definition"
+                    script{
+                        currentBuild.result = "ABORTED"
+                    }
+                }
+            }
+            stage ("Run") {
+                when {
+                    beforeAgent true
+                    expression { currentBuild.result != "ABORTED" }
+                }
+                agent any
+                stages {
+                    stage("Test") {
+                        steps {
+                            echo "Do whatever!"
+                        }
+                    }
+                  }
+              }
+      }
+}  
