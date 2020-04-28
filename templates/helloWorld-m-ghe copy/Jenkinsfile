@@ -8,7 +8,7 @@ pipeline {
             when {
                 anyOf {
                     branch 'feature/build-in-jenkins-with-docker';
-                    branch 'master'
+                    branch 'develop'
                 }
             }
             steps {
