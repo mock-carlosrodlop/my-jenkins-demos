@@ -83,7 +83,6 @@ pipeline {
                  charset: 'UTF-8', from: '', mimeType: 'text/html', subject: "${env.JOB_BASE_NAME} SUCCESS", to: "${MAIL_ADDRESS}";
         }
         failure {
-            echo "<b>CPU above 90%</b> <br>Reported by: ${env.JOB_NAME} <br>System time: ${timestamp} <br>Build Number: ${env.BUILD_NUMBER} <br>URL de build: ${env.BUILD_URL} <br>Data Package Failed :("
             mail body: "<b>CPU above 90%</b> <br>Reported by: ${env.JOB_NAME} <br>System time: ${timestamp} <br>Build Number: ${env.BUILD_NUMBER} <br>URL de build: ${env.BUILD_URL} <br>Data Package Failed :(",
                 charset: 'UTF-8', from: '', mimeType: 'text/html', subject: "${env.JOB_BASE_NAME} SUCCESS", to: "${MAIL_ADDRESS}";
         }
