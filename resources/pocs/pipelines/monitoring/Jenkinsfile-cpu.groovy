@@ -18,7 +18,7 @@ def timestamp
 def masterPid
 pipeline {
    environment {
-        MAIL_ADDRESS="it.carlosrodlop@gmail.com"
+        MAIL_ADDRESS="mail.example@example.com"
    }  
    agent {
         label "master"
