@@ -33,9 +33,8 @@ multibranch:
       repository: "${ghe_repo}"
       credentialsId: "${ghe_cred}"
       traits:
-        - headWildcardFilter:
-            includes: "*"
-        - $class: CleanBeforeCheckoutTrait
+        headWildcardFilter:
+          includes: "*"
     strategy:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:
