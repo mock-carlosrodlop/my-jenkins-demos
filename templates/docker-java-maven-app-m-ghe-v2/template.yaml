@@ -35,6 +35,8 @@ multibranch:
       traits:
         - headWildcardFilter:
             includes: develop
+            excludes:  
+        - $class: CleanBeforeCheckoutTrait
     strategy:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:
