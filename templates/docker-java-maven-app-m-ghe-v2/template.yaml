@@ -35,8 +35,8 @@ multibranch:
       traits:
         - headWildcardFilter:
             includes: "master"
-      strategy:
-        $class: DefaultBranchPropertyStrategy # All branches get the same properties
-        props:
-          - $class: NoTriggerBranchProperty # Suppress automatic SCM triggering
+    strategy:
+      $class: DefaultBranchPropertyStrategy # All branches get the same properties
+      props:
+        - $class: NoTriggerBranchProperty # Suppress automatic SCM triggering
   scanRepositoryInterval: 2 hours
