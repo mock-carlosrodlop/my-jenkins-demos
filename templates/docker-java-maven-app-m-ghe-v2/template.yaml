@@ -36,4 +36,5 @@ multibranch:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:
         - $class: NoTriggerBranchProperty # Suppress automatic SCM triggering
+  markerFile: pom.xml
   scanRepositoryInterval: 2 hours
