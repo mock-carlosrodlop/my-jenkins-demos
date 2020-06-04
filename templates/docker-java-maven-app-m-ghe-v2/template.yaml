@@ -32,6 +32,9 @@ multibranch:
       repoOwner: "support-team"
       repository: "${ghe_repo}"
       credentialsId: "${ghe_cred}"
+      traits:
+        - headWildcardFilter:
+            includes: develop
     strategy:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:
