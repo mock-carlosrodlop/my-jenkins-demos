@@ -33,11 +33,7 @@ multibranch:
       traits:
         - headWildcardFilter:
             includes: "*"
-        - gitHubBranchDiscovery:
-            strategyId: "1"
-        - gitHubForkDiscovery:
-            strategyId: "1"
-        - gitHubPullRequestDiscovery:
+        - gitBranchDiscovery:
             strategyId: "1"
     strategy:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
