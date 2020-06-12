@@ -32,7 +32,7 @@ multibranch:
       credentialsId: "${ghe_cred}"
       traits:
         - headWildcardFilter:
-            includes: "*"
+            includes: "feature"
         - gitBranchDiscovery:
             strategyId: "1"
     strategy:
