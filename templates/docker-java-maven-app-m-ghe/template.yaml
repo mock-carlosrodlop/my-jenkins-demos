@@ -1,7 +1,7 @@
 version: 1
 type: pipeline-template
 templateType: MULTIBRANCH
-name: "Multibranch Pipeline for Maven Docker Apps in Kubernetes" 
+name: "Multibranch before 3.6 - Github Enterprise"
 description: "Continuos Integration pipeline multibranch to model Maven Docker Apps projects using a Kaniko agent"
 parameters:
   - name: k8_agent_yaml
@@ -32,5 +32,5 @@ multibranch:
       repoOwner: "support-team"
       repository: "${ghe_repo}"
       credentialsId: "${ghe_cred}"
-  markerFile: pom.xml
+  markerFile: pom.xml # Optional if you are using maven
   scanRepositoryInterval: 2 hours
