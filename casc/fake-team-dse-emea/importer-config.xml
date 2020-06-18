@@ -1,0 +1,37 @@
+<project>
+<actions/>
+<description/>
+<keepDependencies>false</keepDependencies>
+<properties>
+<com.synopsys.arc.jenkins.plugins.ownership.jobs.JobOwnerJobProperty plugin="ownership@0.12.1"/>
+</properties>
+<scm class="hudson.plugins.git.GitSCM" plugin="git@4.2.2">
+<configVersion>2</configVersion>
+<userRemoteConfigs>
+<hudson.plugins.git.UserRemoteConfig>
+<url>https://github.com/carlosrodlop/my-jenkins-scm-home.git</url>
+</hudson.plugins.git.UserRemoteConfig>
+</userRemoteConfigs>
+<branches>
+<hudson.plugins.git.BranchSpec>
+<name>*/master</name>
+</hudson.plugins.git.BranchSpec>
+</branches>
+<doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+<submoduleCfg class="list"/>
+<extensions/>
+</scm>
+<canRoam>true</canRoam>
+<disabled>false</disabled>
+<blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+<triggers/>
+<concurrentBuild>false</concurrentBuild>
+<builders>
+<hudson.tasks.Shell>
+<command>CASC_BUNDLE="$JENKINS_HOME/jcasc-bundles-store/fake-team-dse-emea" if [ ! -d "$CASC_BUNDLE" ]; then mkdir -p "$CASC_BUNDLE" fi cp "casc/fake-team-dse-emea/bundle/bundle.yaml" "$JENKINS_HOME/jcasc-bundles-store/fake-team-dse-emea/bundle.yaml" cp "casc/fake-team-dse-emea/bundle/jenkins.yaml" "$JENKINS_HOME/jcasc-bundles-store/fake-team-dse-emea/jenkins.yaml" cp "casc/fake-team-dse-emea/bundle/plugin-catalog.yaml" "$JENKINS_HOME/jcasc-bundles-store/fake-team-dse-emea/plugin-catalog.yaml" cp "casc/fake-team-dse-emea/bundle/plugins.yaml" "$JENKINS_HOME/jcasc-bundles-store/fake-team-dse-emea/plugins.yaml" </command>
+</hudson.tasks.Shell>
+</builders>
+<publishers/>
+<buildWrappers/>
+</project>
