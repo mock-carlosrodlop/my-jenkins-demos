@@ -1,1 +1,0 @@
-Output from https://core.gcp.support.beescloud.com/teams-dse-team-emea/core-casc-export/

@@ -187,7 +187,7 @@ unclassified:
         repositoriesCacheDuration: 0
         teamCacheDuration: 0
     - bitbucketServerEndpoint:
-        bitbucketJenkinsRootUrl: "https://core.gcp.support.beescloud.com/fake-teams-dse-team-emea/"
+        bitbucketJenkinsRootUrl: "https://core.gcp.support.beescloud.com/teams-fake-dse-team-emea/"
         credentialsId: "support-team-github.beescloud.com"
         displayName: "https://fake-bitbucket.com/"
         manageHooks: true
@@ -238,7 +238,7 @@ unclassified:
     configs:
     - credentialsId: "fake-fake-carlosrodlop-github-st"
       name: "GH-servers"
-    hookUrl: "https://core.gcp.support.beescloud.com/fake-teams-dse-team-emea/github-webhook/"
+    hookUrl: "https://core.gcp.support.beescloud.com/teams-fake-dse-team-emea/github-webhook/"
   gitSCM:
     createAccountBasedOnEmail: false
     globalConfigName: "carlos"
@@ -252,7 +252,7 @@ unclassified:
     gracePeriod: 120
   location:
     adminAddress: "address not configured yet <nobody@nowhere>"
-    url: "https://core.gcp.support.beescloud.com/fake-teams-dse-team-emea/"
+    url: "https://core.gcp.support.beescloud.com/teams-fake-dse-team-emea/"
   mailer:
     authentication:
       password: "{AQAAABAAAAAQlFKHm2/H2TqgOT1lfP4SUMTBrJAv27qnwLkniuvJA2A=}"
