@@ -1,25 +1,27 @@
+# jenkins.yaml
+----
 credentials:
   system:
     domainCredentials:
     - credentials:
       - usernamePassword:
-          description: "ssh-fake"
-          id: "ssh-fake"
-          password: "{AQAAABAAAAAwhEz2AudML0RiCSPodLGSpU4Mt8nLYrtmavYlJ8oAMpSw6mxePQyv/sjXmmheeUixxxxxxxxxxxxxxxx}"
+          description: "fake-ssh-credential"
+          id: "fake-ssh-credential"
+          password: "{AQAAABAAAAAghHQsNcQ5bZNuyd1TefFJprJW3xW0oHEy+xxxxxxxxxxxxxx}"
           scope: GLOBAL
           username: "root"
       - string:
-          id: "carlosrodlop-github-st-fake"
+          id: "fake-carlosrodlop-github-st"
           scope: GLOBAL
-          secret: "{AQAAABAAAAAghHQsNcQ5bZNuyd1TefFJprJW3xW0oHEy+EupAqvo5l3E8p5sQFxxxxxxxxxxxxxxxxx}"
+          secret: "{AQAAABAAAAAwhEz2AudML0RiCSPodLGSpU4Mt8nLYrtmavYlJ8oAMpSw6mxePQyv/sjXmmheeUi0Yqxxxxxxxxxxxxxx}"
 beekeeper:
   enabled: true
   securityWarnings:
     enabledForCore: true
     enabledForPlugins: true
   upgrades:
-    autoDowngradePlugins: false
-    autoUpgradePlugins: false
+    autoDowngradePlugins: true
+    autoUpgradePlugins: true
 notificationConfiguration:
   enabled: true
   router: "operationsCenter"
@@ -34,14 +36,9 @@ jenkins:
       excludeClientIPFromCrumb: true
   disableRememberMe: false
   labelAtoms:
-  - name: "abhi.test"
-  - name: "agent"
-  - name: "ath"
-  - name: "cloudbees-java"
-  - name: "default-java"
-  - name: "dind-aws-agent"
+  - name: "ssh-agent"
   - name: "master"
-  - name: "maven-jdk11"
+  - name: "pbeitz-agent"
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
@@ -51,12 +48,12 @@ jenkins:
       launcher:
         nioSsh:
           connectionDetails:
-            credentialsId: "ssh-fake"
+            credentialsId: "fake-ssh-credential"
             displayEnvironment: false
             keyVerificationStrategy: "blindlyTrust"
             port: 14714
           host: "0.tcp.ngrok.io"
-      name: "ssh-agent"
+      name: "fake-ssh-agent"
       numExecutors: 1
       remoteFS: "/tmp/jemkins-agent"
       retentionStrategy: "always"
@@ -71,7 +68,7 @@ jenkins:
             disabled: false
             failIfWorkDirIsMissing: false
             internalDir: "remoting"
-      name: "jnlp-agent"
+      name: "fake-jnlp-agent"
       numExecutors: 1
       remoteFS: "/tmp/agent"
       retentionStrategy: "always"
@@ -111,7 +108,7 @@ kube:
         envVars:
         - envVar:
             key: "HEROKU_API_KEY"
-            value: "836c03e7-aaaa-cccc-bbbb-xxxxxxxxxxxx"
+            value: "836c03e7-6e88-487d-b74c-xxxxxxxxxx"
         image: "wingrunr21/alpine-heroku-cli:latest"
         livenessProbe:
           failureThreshold: 0
@@ -134,15 +131,15 @@ kube:
         ttyEnabled: true
         workingDir: "/home/jenkins/agent"
       hostNetwork: false
-      label: "heroku-and-dind"
-      name: "heroku-and-dind"
+      label: "zd180749_v2"
+      name: "zd180749_v2"
       yamlMergeStrategy: "override"
 aws:
   awsCredentials:
-    credentialsId: "s3-cloudbees-support-fake"
+    credentialsId: "fake-s3-cloudbees-support"
     region: "us-east-1"
   s3:
-    container: "artifact-bucket-fake"
+    container: "fake-artifact-bucket-example"
     disableSessionToken: false
     prefix: "acme-artifacts/"
     useHttp: false
@@ -190,11 +187,11 @@ unclassified:
         repositoriesCacheDuration: 0
         teamCacheDuration: 0
     - bitbucketServerEndpoint:
-        bitbucketJenkinsRootUrl: "https://core.gcp.support.beescloud.com/teams-dse-team-emea/"
+        bitbucketJenkinsRootUrl: "https://core.gcp.support.beescloud.com/fake-teams-dse-team-emea/"
         credentialsId: "support-team-github.beescloud.com"
-        displayName: "https://bitbucket.beescloud.com/"
+        displayName: "https://fake-bitbucket.com/"
         manageHooks: true
-        serverUrl: "https://bitbucket.beescloud.com"
+        serverUrl: "https://fake-bitbucket.com"
   buildDiscarders:
     configuredBuildDiscarders:
     - "jobBuildDiscarder"
@@ -232,16 +229,16 @@ unclassified:
     smtpPassword: "{AQAAABAAAAAQ1vbfqjbE+UGXxOM5iiixrzQTWKNZdvWpHliWSKRKJsQ=}"
     smtpPort: "465"
     smtpServer: "smtp.gmail.com"
-    smtpUsername: "user.example"
+    smtpUsername: "fake.admin"
     useSsl: true
     watchingEnabled: false
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
     configs:
-    - credentialsId: "carlosrodlop-github-st-fake"
+    - credentialsId: "fake-fake-carlosrodlop-github-st"
       name: "GH-servers"
-    hookUrl: "https://core.gcp.support.beescloud.com/teams-dse-team-emea/github-webhook/"
+    hookUrl: "https://core.gcp.support.beescloud.com/fake-teams-dse-team-emea/github-webhook/"
   gitSCM:
     createAccountBasedOnEmail: false
     globalConfigName: "carlos"
@@ -255,11 +252,11 @@ unclassified:
     gracePeriod: 120
   location:
     adminAddress: "address not configured yet <nobody@nowhere>"
-    url: "https://core.gcp.support.beescloud.com/teams-dse-team-emea/"
+    url: "https://core.gcp.support.beescloud.com/fake-teams-dse-team-emea/"
   mailer:
     authentication:
-      password: "{AQAAABAAAAAQlFKHm2/H2TqgOT1lfP4SUMTBrxxxxxxxxxxxx=}"
-      username: "user.example"
+      password: "{AQAAABAAAAAQlFKHm2/H2TqgOT1lfP4SUMTBrJAv27qnwLkniuvJA2A=}"
+      username: "fake.admin"
     charset: "UTF-8"
     defaultSuffix: "@gmail.com"
     smtpHost: "smtp.gmail.com"
@@ -293,7 +290,7 @@ tool:
           - zip:
               subdir: "/home/jenkins/tools/hudson.model.JDK/JDK_12/jdk-12.0.1"
               url: "https://download.java.net/java/GA/jdk12.0.1/69cfe15208a647278a19ef0990eea691/12/GPL/openjdk-12.0.1_linux-x64_bin.tar.gz"
-    - name: "jdk-9.04c"
+    - name: "Test_mcb"
       properties:
       - installSource:
           installers:
