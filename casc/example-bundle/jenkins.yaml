@@ -1,0 +1,187 @@
+# jenkins.yaml
+----
+beekeeper:
+  enabled: true
+  securityWarnings:
+    enabledForCore: true
+    enabledForPlugins: true
+  upgrades:
+    autoDowngradePlugins: true
+    autoUpgradePlugins: true
+notificationConfiguration:
+  enabled: true
+  router: "operationsCenter"
+jenkins:
+  agentProtocols:
+  - "Diagnostic-Ping"
+  - "JNLP4-connect"
+  - "OperationsCenter2"
+  - "Ping"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  disableRememberMe: false
+  numExecutors: 0
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm: "operationsCenter"
+  slaveAgentPort: 50000
+  updateCenter:
+    sites:
+    - id: "cap-core-mm"
+      url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
+    - id: "core-mm-offline"
+      url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
+kube:
+  podTemplatesConfiguration:
+    templates:
+    - containers:
+      - args: "cat"
+        command: "/bin/sh -c"
+        envVars:
+        - envVar:
+            key: "HEROKU_API_KEY"
+            value: "836c03e7-6e88-487d-b74c-xxxxxxxxxx"
+        image: "wingrunr21/alpine-heroku-cli:latest"
+        livenessProbe:
+          failureThreshold: 0
+          initialDelaySeconds: 0
+          periodSeconds: 0
+          successThreshold: 0
+          timeoutSeconds: 0
+        name: "heroku"
+        ttyEnabled: true
+        workingDir: "/home/jenkins/agent"
+      - image: "docker:18.06.1-ce-dind"
+        livenessProbe:
+          failureThreshold: 0
+          initialDelaySeconds: 0
+          periodSeconds: 0
+          successThreshold: 0
+          timeoutSeconds: 0
+        name: "dind"
+        privileged: true
+        ttyEnabled: true
+        workingDir: "/home/jenkins/agent"
+      hostNetwork: false
+      label: "zd180749_v2"
+      name: "zd180749_v2"
+      yamlMergeStrategy: "override"
+security:
+  anonymizeSupportBundle:
+    enabled: false
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: true
+  sSHD:
+    port: -1
+  scriptApproval:
+    approvedSignatures:
+    - "method groovy.lang.GroovyClassLoader loadClass java.lang.String boolean boolean"
+    - "method hudson.FilePath child java.lang.String"
+    - "method hudson.FilePath copyFrom hudson.FilePath"
+    - "method hudson.FilePath read"
+    - "method java.lang.Class getClassLoader"
+    - "method java.lang.Class newInstance"
+    - "method java.lang.management.RuntimeMXBean getName"
+    - "new java.io.File java.lang.String"
+    - "staticMethod java.lang.management.ManagementFactory getRuntimeMXBean"
+    - "staticMethod jenkins.model.Jenkins getInstance"
+    - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods getBytes java.io.InputStream"
+    - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods leftShift java.io.File\
+      \ java.lang.Object"
+    - "staticMethod org.codehaus.groovy.runtime.EncodingGroovyMethods encodeBase64\
+      \ byte[]"
+unclassified:
+  artifactManager:
+    artifactManagerFactories:
+    - "jSync"
+  audit-trail:
+    logBuildCause: true
+    pattern: ".*/(?:configSubmit|doDelete|postBuildResult|enable|disable|cancelQueue|stop|toggleLogKeep|doWipeOutWorkspace|createItem|createView|toggleOffline|cancelQuietDown|quietDown|restart|exit|safeExit)"
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  buildTimestamp:
+    enableBuildTimestamp: true
+    pattern: "yyyy-MM-dd HH:mm:ss z"
+    timezone: "GMT"
+  defaultFolderConfiguration:
+    healthMetrics:
+    - worstChildHealthMetric:
+        recursive: true
+    - "averageChildHealthMetric"
+    - jobStatusHealthMetric:
+        countVirginJobs: false
+        failure: true
+        success: true
+        unbuilt: true
+        unstable: true
+    - "projectEnabledHealthMetric"
+  experimentalPlugins:
+    enabled: false
+  hibernationConfiguration:
+    activities:
+    - "build"
+    - "web"
+    enabled: false
+    gracePeriod: 120
+  location:
+    adminAddress: "jenkins.admin@example.com"
+  mavenModuleSet:
+    localRepository: "default"
+  pollSCM:
+    pollingThreadCount: 10
+  timestamperConfig:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+  usageStatisticsCloudBees:
+    usageStatisticsCollected: true
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - name: "JDK_12"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "/home/jenkins/tools/hudson.model.JDK/JDK_12/jdk-12.0.1"
+              url: "https://download.java.net/java/GA/jdk12.0.1/69cfe15208a647278a19ef0990eea691/12/GPL/openjdk-12.0.1_linux-x64_bin.tar.gz"
+    - name: "Test_mcb"
+      properties:
+      - installSource:
+          installers:
+          - jdkInstaller:
+              acceptLicense: true
+              id: "jdk-9.0.4-oth-JPR"
+  maven:
+    installations:
+    - name: "Maven3.6.0"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.6.0"
+    - name: "mvn-3.6.3"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.6.3"
+  pipelineMaven:
+    triggerDownstreamUponResultAborted: false
+    triggerDownstreamUponResultFailure: false
+    triggerDownstreamUponResultNotBuilt: false
+    triggerDownstreamUponResultSuccess: true
+    triggerDownstreamUponResultUnstable: false

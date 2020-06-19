@@ -1,0 +1,10 @@
+# bundle.yaml
+---
+  id: "casc demo"
+  version: 1
+  description: "Bundle for casc demos"
+  plugins:
+    - "plugins.yaml"
+  jcasc:
+    - "jenkins.yaml"
+  
