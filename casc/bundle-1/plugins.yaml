@@ -1,5 +1,3 @@
-# plugins.yaml
----
 plugins:
 - {id: monitoring}
 - {id: blueocean-pipeline-scm-api}

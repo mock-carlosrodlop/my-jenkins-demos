@@ -44,7 +44,8 @@ cp "$SRC_BUNDLE/plugins.yaml" "$OC_JCASC_BUNDLE/plugins.yaml"
 8. Look at `kubectl log -f master-example-0` for troubleshooting
 
 ```log
-
+2020-06-19 17:26:54.153+0000 [id=26]	WARNING	c.c.j.c.i.casc.HttpLoader#load: Invalid configuration bundle: Missing 'apiVersion' property in bundle.yaml. Using the existing one
+2020-06-19 17:26:54.163+0000 [id=26]	INFO	c.c.j.c.i.CJPPluginManager$StartUp$1#apply: Core Configuration as Code is enabled
 ```
 
 
