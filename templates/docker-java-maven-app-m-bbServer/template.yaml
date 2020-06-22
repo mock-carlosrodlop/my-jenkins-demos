@@ -28,8 +28,8 @@ parameters:
 multibranch:
   branchSource:
     bitbucket:
-      serverUrl: https://bitbucket.beescloud.com 
-      repoOwner: support-team
+      serverUrl: https://bitbucket.beescloud.com
+      repoOwner: ce
       repository: "${bbs_repo}"
       credentialsId: "${bbs_cred}"
     strategy:
