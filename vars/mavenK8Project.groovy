@@ -80,7 +80,7 @@ def call(configYaml) {
                     }
                     stage("Publish in Registry") {
                         environment {
-                            GIT_PARAM_REPO = "${config.ghe_repo}"
+                            GIT_PARAM_REPO = "${config.bbs_repo}"
                             DOCKER_DESTINATION = "${config.d_registry.trim()}/${GIT_PARAM_REPO}_${git_currentBranch}:${git_commit}"
                         }
                         steps {
