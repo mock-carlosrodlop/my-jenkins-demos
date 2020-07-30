@@ -168,12 +168,12 @@ tool:
           installers:
           - openShiftClientInstaller:
               id: "v3.11.0"
-  sonarRunnerInstallation:
-    installations:
-    - name: "Sonar-Scanner"
-      properties:
-      - installSource:
-          installers:
-          - sonarRunnerInstaller:
-              id: "4.3.0.2102"
+  # sonarRunnerInstallation:
+  #   installations:
+  #   - name: "Sonar-Scanner"
+  #     properties:
+  #     - installSource:
+  #         installers:
+  #         - sonarRunnerInstaller:
+  #             id: "4.3.0.2102"
 

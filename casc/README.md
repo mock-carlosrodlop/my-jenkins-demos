@@ -7,14 +7,9 @@
 3. Import bundle into OC `$JENKINS-HOME/jcasc-bundles-store` using the importer job  
 
 ```sh
-SRC_BUNDLE="casc/bundle-1"
-OC_JCASC_BUNDLE="$JENKINS_HOME/jcasc-bundles-store/carlosrodlop-bundle-1"
-if [ ! -d "$OC_JCASC_BUNDLE" ]; then
-  mkdir -p "$OC_JCASC_BUNDLE"
-fi
-cp "$SRC_BUNDLE/bundle.yaml" "$OC_JCASC_BUNDLE/bundle.yaml"
-cp "$SRC_BUNDLE/jenkins.yaml" "$OC_JCASC_BUNDLE/jenkins.yaml"
-cp "$SRC_BUNDLE/plugins.yaml" "$OC_JCASC_BUNDLE/plugins.yaml"
+SRC_BUNDLE="casc/bundle-2"
+OC_JCASC_BUNDLE="$JENKINS_HOME/jcasc-bundles-store/carlosrodlop-bundle-2"
+cp -R "$SRC_BUNDLE" "$OC_JCASC_BUNDLE"
 ```
 
 4. Navigate to `$OC_URL/cjoc/core-casc-bundles` and check the Bundle has been imported correctly
