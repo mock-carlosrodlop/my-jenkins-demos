@@ -6,14 +6,14 @@ configurations:
 - description: "Exported plugins"
   includePlugins:
     ivy: {version: '2.1'}
-    artifactory: {version: 3.6.2}
+    artifactory: {version: '3.6.2'}
     analysis-core: {version: '1.96'}
-    twistlock-jenkins-plugin: {version: 19.07.358}
-    hashicorp-vault-plugin: {version: 3.4.1}
-    service-now: {version: 0.0.4}
+    twistlock-jenkins-plugin: {version: '19.07.358'}
+    hashicorp-vault-plugin: {version: '3.4.1'}
+    service-now: {version: '0.0.4'}
     slack: {version: '2.40'}
     job-import-plugin: {version: '3.4'}
-    syslog-logger: {version: 1.0.5}
+    syslog-logger: {version: '1.0.5'}
     audit-trail: {version: '3.5'}
     sonar: {version: '2.11'}
     generic-webhook-trigger: {version: '1.67'}
