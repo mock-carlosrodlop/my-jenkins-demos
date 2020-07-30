@@ -147,10 +147,10 @@ tool:
   git:
     installations:
     - home: "git"
-      name: "Default"
+      name: "My git"
   maven:
     installations:
-    - name: "Default"
+    - name: "M3"
       properties:
       - installSource:
           installers:
@@ -158,12 +158,8 @@ tool:
               id: "3.6.3"
   openshift:
     installations:
-    - properties:
-      - installSource:
-          installers:
-          - openShiftClientInstaller:
-              id: "v3.11.0"
-    - properties:
+    - name: "OpenShift3"
+      properties:
       - installSource:
           installers:
           - openShiftClientInstaller:

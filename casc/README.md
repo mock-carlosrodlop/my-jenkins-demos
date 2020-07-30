@@ -51,8 +51,8 @@ cp -R "$SRC_BUNDLE" "$OC_JCASC_BUNDLE"
 
 ## Bundles
 
-* bundle-1 - OK
-* bundle-2 - KO
+* bundle-1 - Validated with CloudBees CI Managed Master 2.235.2.3-rolling
+* bundle-2 - Validated with CloudBees CI Managed Master 2.235.2.3-rolling
 
 ## Ref
 
