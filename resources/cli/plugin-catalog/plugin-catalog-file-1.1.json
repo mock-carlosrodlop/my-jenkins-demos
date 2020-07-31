@@ -1,0 +1,19 @@
+{
+    "type" : "plugin-catalog",
+    "version" : "1",
+    "name" : "additional-funny-plugins-1-1",
+    "displayName" : "Additional Funny plugins 1.1",
+    "configurations" : [
+        {
+            "description" : "Jenkins Plugins to increase the sense of humor for your instance. For core 2.235.+ version 1",
+            "prerequisites": {
+                "productVersion": "2.235.2.3"
+            },
+            "includePlugins" : {
+                "beer": {
+                    "url" : "https://updates.jenkins.io/download/plugins/beer/1.2/beer.hpi"
+                }
+            }
+        }
+    ]
+}
