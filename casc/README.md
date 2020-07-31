@@ -57,3 +57,7 @@ cp -R "$SRC_BUNDLE" "$OC_JCASC_BUNDLE"
 ## Ref
 
 * [Configuration as Code (CasC) for Masters | CloudBees Docs](https://docs.cloudbees.com/docs/cloudbees-core/latest/cloud-admin-guide/core-casc-modern)
+
+## Found issues
+
+> 2020-07-31 11:30:08.374+0000 [id=25]	SEVERE	c.c.j.c.i.ExtensionInstaller#logErrors: Errors on catalog install: [Error when processing future. java.lang.UnsupportedOperationException: Maven repository downloads are not supported, use the HTTP download instead]
