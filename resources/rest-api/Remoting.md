@@ -1,0 +1,2 @@
+https://alm-jenkins8.systems.uk.hsbc:8706/jenkins/computer/api/json?pretty&tree=computer[executors[currentExecutable[fullDisplayName,number,queueId,result,url,timestamp,duration,building]],oneOffExecutors[currentExecutable[fullDisplayName,number,queueId,result,url,timestamp,duration,building]]]
+
