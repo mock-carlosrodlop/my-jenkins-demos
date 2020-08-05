@@ -5,7 +5,7 @@ This repo contains code for **demos**
 * [Jenkinsfile](resources/pipelines)
 * [Jenkins Shared Libraries](vars)
 * [CloudBees Pipeline Templates](templates)
-* [Configuration as Code (CasC) for Masters | CloudBees Docs](casc)
+* [Configuration as Code (CasC) for Masters](resources/casc)
 * [Jenkins CLI](resources/cli)
 * [Jenkins API-REST](resources/rest-api)
 * [Jenkins agents](resources/agents)
@@ -14,7 +14,7 @@ Demo repositories for builds: https://github.com/jenkins-demo
 
 ## Structure
 
-Merging structure from Pipeline Shared Libraries and Pipeline Catalogs
+Structure compatible with [Pipeline Shared Libraries](https://www.jenkins.io/doc/book/pipeline/shared-libraries/#directory-structure) and [Pipeline Catalogs](https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-templates-user-guide/setting-up-a-pipeline-template-catalog)
 
 ```sh
 (root)
@@ -29,12 +29,8 @@ Merging structure from Pipeline Shared Libraries and Pipeline Catalogs
 +- resources
 |   +- agents
 |       +- k8s                         # Agent k8 resources description
-|              +- agent.yaml           # Pod Agent description
-|   +- cli
-|       +- pipeline-template-catalogs
-|              +- catalog.import.json  # Import definition for the Catalog  
-|   +- pipelines                       # Pipeline examples
-|       +- templates
-|           +- bar
-|              +- Jenkinsfile          # Pipeline for template example
+|       +- docker                      # Dockerfiles
+|   +- cli                             # CLI examples and resources
+|   +- pipelines                       # Pipeline examples and resources
+|   +- casc                            # Casc Bundles Examples
 ```
