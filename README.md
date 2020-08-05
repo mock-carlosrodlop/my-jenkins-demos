@@ -1,4 +1,4 @@
-# Jenkins SCM Home
+# My Jenkins Demos
 
 This repo contains code for **demos**
 
