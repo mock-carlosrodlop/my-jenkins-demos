@@ -10,14 +10,14 @@
 
 ```sh
 # curl -v -X POST "http(s)://<USERNAME>:<TOKEN>@<JENKINS_SERVER>/job/JOB_NAME/build" [-H "CRUB"]
-curl -v -X POST "http://admin:522c579740238f0791d49d205df47323@labs.cje.linux.crl:8183/job/pipeline_TEST/build"
+curl -v -X POST "http://admin:******@labs.cje.linux.crl:8183/job/pipeline_TEST/build"
 ```
 
 ## Build a job WITH parameters (including hiding)
 
 ```sh
 # curl -v -X POST "http(s)://<USERNAME>:<TOKEN>@<JENKINS_SERVER>/job/JOB_NAME/buildWithParameters?PARAM=value" [-H "CRUB"]
-curl -v -X POST "http://admin:ba42ef7552848f33ddf6a54a688a736e@localhost:8080/job/test_HidenParameters2/buildWithParameters?HIDEN_1=updateHiden1"
+curl -v -X POST "http://admin:******e@localhost:8080/job/test_HidenParameters2/buildWithParameters?HIDEN_1=updateHiden1"
 ```
 
 ## create Item
@@ -26,7 +26,7 @@ wget
 
 ```sh
 # wget --verbose --auth-no-challenge --http-user=admin --header='Content-type: application/xml; charset=ISO-8859-1' --http-password=<APITOKEN> -O /dev/null --post-file=job_config-example.xml "http://<JENKINS_SERVER>/createItem?name=<NEWITEM_NAME>&token=<APITOKEN>"
-> wget --verbose --auth-no-challenge --http-user=admin --header='Content-type: application/xml; charset=ISO-8859-1' --http-password=3f5491e6d8416340642da20556d758ab -O /dev/null --post-file=job_config-example.xml "http://cje1.bundle.crl:8080/createItem?name=myJobFromConsole&token=3f5491e6d8416340642da20556d758ab"
+> wget --verbose --auth-no-challenge --http-user=admin --header='Content-type: application/xml; charset=ISO-8859-1' --http-password=******b -O /dev/null --post-file=job_config-example.xml "http://cje1.bundle.crl:8080/createItem?name=myJobFromConsole&token=******"
 --2017-03-29 20:48:50--  http://cje1.bundle.crl:8080/createItem?name=myJobFromConsole&token=3f5491e6d8416340642da20556d758ab
 Resolving cje1.bundle.crl... 127.0.0.1
 Connecting to cje1.bundle.crl|127.0.0.1|:8080... connected.
