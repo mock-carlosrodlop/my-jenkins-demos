@@ -14,6 +14,10 @@ parameters:
   - name: gh_repo
     displayName: "GitHub Repository Name" 
     type: string
+  - name: gh_watched_branches
+    type: string
+    displayName: "Watched Branch selection pattern (Space-separated list)"
+    defaultValue: "develop development master staging uat"
   - name: d_path
     type: string
     displayName: "Dockerfile build path"
@@ -25,10 +29,6 @@ parameters:
     type: string
     displayName: "Docker Registry"
     defaultValue: "supportbeescloud"
-  - name: d_watched_branches
-    type: string
-    displayName: "Watched Branch selection pattern (Space-separated list)"
-    defaultValue: "develop development master staging uat"
 multibranch:
   branchSource:
     github:
