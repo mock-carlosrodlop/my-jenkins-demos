@@ -37,9 +37,11 @@ multibranch:
       credentialsId: "${gh_cred}"
       traits:
         - headWildcardFilter:
-            includes: "${d_watched_branches}"
+            includes: "develop"
         - gitHubBranchDiscovery:
             strategyId: "1"
+        - gitHubForkDiscovery:
+            strategyId: "0"
         - gitHubPullRequestDiscovery:
             strategyId: "1"
     strategy:
