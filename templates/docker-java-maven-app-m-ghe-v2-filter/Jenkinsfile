@@ -1,8 +1,8 @@
 // Loading Shared Libraries
 library identifier: 'my-shared-libraries@demo', retriever: modernSCM(
   [$class: 'GitSCMSource',
-   remote: 'https://github.com/cloudbees-oss/pipeline-home-demo.git',
-   credentialsId: '6a998a68-1b08-4397-9278-49a3fda95bb8'])
+   remote: 'https://github.com/carlosrodlop/my-jenkins-demos.git',
+   credentialsId: '80ab8fca-fd75-479f-81ed-c769a9d07928'])
 
 // Template Form Validation
 strNoSpacesValidator("GitHub Repository Name", "${ghe_repo}")
