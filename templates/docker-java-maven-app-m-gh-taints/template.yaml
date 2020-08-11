@@ -48,5 +48,4 @@ multibranch:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:
         - $class: NoTriggerBranchProperty # Suppress automatic SCM triggering
-  markerFile: pom.xml # Optional if you are using maven
   scanRepositoryInterval: 2 hours
