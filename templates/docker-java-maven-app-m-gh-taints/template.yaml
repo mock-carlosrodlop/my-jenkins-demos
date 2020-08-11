@@ -37,7 +37,7 @@ multibranch:
       credentialsId: "${gh_cred}"
       traits:
         - headWildcardFilter:
-            includes: "${watched_branches}"
+            includes: "${d_watched_branches}"
         - gitHubBranchDiscovery:
             strategyId: "1"
         - gitHubPullRequestDiscovery:
@@ -46,5 +46,4 @@ multibranch:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:
         - $class: NoTriggerBranchProperty # Suppress automatic SCM triggering
-  markerFile: pom.xml # Optional if you are using maven
   scanRepositoryInterval: 2 hours
