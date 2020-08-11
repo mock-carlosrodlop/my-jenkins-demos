@@ -25,7 +25,7 @@ parameters:
     type: string
     displayName: "Docker Registry"
     defaultValue: "supportbeescloud"
-  - name: watched_branches
+  - name: d_watched_branches
     type: string
     displayName: "Watched Branch selection pattern (Space-separated list)"
     defaultValue: "develop development master staging uat"
@@ -42,7 +42,6 @@ multibranch:
             strategyId: "1"
         - gitHubPullRequestDiscovery:
             strategyId: "1"
-        - gitHubTagDiscovery
     strategy:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:

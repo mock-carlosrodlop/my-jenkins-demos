@@ -16,7 +16,7 @@ gh_repo : '${gh_repo}'
 d_path : '${d_path}'
 d_latest : ${d_latest}
 d_registry : '${d_registry}'
-d_watched_branches
+d_watched_branches : '${d_watched_branches}'
 """
 
 // Calling the CI Pipeline
