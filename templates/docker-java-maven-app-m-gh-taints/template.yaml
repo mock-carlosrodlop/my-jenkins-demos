@@ -27,8 +27,8 @@ parameters:
     defaultValue: "supportbeescloud"
   - name: watched_branches
     type: string
-    displayName: Watched Branch selection pattern (Space-separated list)
-    defaultvalue: "develop development master staging uat"
+    displayName: "Watched Branch selection pattern (Space-separated list)"
+    defaultValue: "develop development master staging uat"
 multibranch:
   branchSource:
     github:
