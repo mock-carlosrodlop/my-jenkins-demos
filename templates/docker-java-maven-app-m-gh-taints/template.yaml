@@ -35,8 +35,18 @@ multibranch:
       repoOwner: "carlosrodlop"
       repository: "${gh_repo}"
       credentialsId: "${gh_cred}"
+      traits:
+        - headWildcardFilter:
+            includes: "develop"
+        - gitHubBranchDiscovery:
+            strategyId: "1"
+        - gitHubForkDiscovery:
+            strategyId: "0"
+        - gitHubPullRequestDiscovery:
+            strategyId: "1"
     strategy:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:
         - $class: NoTriggerBranchProperty # Suppress automatic SCM triggering
+  markerFile: pom.xml # Optional if you are using maven
   scanRepositoryInterval: 2 hours
