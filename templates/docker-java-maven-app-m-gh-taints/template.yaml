@@ -17,7 +17,7 @@ parameters:
   - name: gh_watched_branches
     type: string
     displayName: "Watched Branch selection pattern (Space-separated list)"
-    defaultValue: "master"
+    defaultValue: "master develop"
   - name: d_path
     type: string
     displayName: "Dockerfile build path"
