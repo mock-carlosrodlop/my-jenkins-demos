@@ -40,10 +40,9 @@ multibranch:
             includes: "${gh_watched_branches}"
         - gitHubBranchDiscovery:
             strategyId: "1"
-        - gitHubForkDiscovery:
-            strategyId: "0"
         - gitHubPullRequestDiscovery:
             strategyId: "1"
+        - gitHubTagDiscovery
     strategy:
       $class: DefaultBranchPropertyStrategy # All branches get the same properties
       props:
