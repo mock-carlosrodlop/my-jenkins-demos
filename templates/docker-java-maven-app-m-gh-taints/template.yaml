@@ -17,7 +17,7 @@ parameters:
   - name: gh_watched_branches
     type: string
     displayName: "Watched Branch selection pattern (Space-separated list)"
-    defaultValue: "develop development master staging uat"
+    defaultValue: "master"
   - name: d_path
     type: string
     displayName: "Dockerfile build path"
@@ -37,7 +37,7 @@ multibranch:
       credentialsId: "${gh_cred}"
       traits:
         - headWildcardFilter:
-            includes: "develop"
+            includes: "${gh_watched_branches}"
         - gitHubBranchDiscovery:
             strategyId: "1"
         - gitHubForkDiscovery:
