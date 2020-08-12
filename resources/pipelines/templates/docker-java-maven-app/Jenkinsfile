@@ -29,7 +29,7 @@ pipeline {
     kubernetes {
        defaultContainer "maven"
        namespace "cje-support-agents"
-       yaml libraryResource("agents/k8s/java/${K8_AGENT_YAML}.yaml")
+       yaml libraryResource("k8s/agents/java/${K8_AGENT_YAML}.yaml")
       }
   }
   options {
