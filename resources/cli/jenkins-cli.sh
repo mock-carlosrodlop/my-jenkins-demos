@@ -1,6 +1,6 @@
 #!/bin/sh
 
-JENKINS_USER_ID=carlos
+JENKINS_USER_ID=my_user
 JENKINS_API_TOKEN=*****
 JENKINS_URL=https://jenkins.example/
 
