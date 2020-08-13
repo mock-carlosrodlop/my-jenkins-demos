@@ -1,2 +1,3 @@
 resources/cli/jenkins-cli.sh
 resources/rest-api/jenkins-rest.sh
+*.jar
