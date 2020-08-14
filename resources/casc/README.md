@@ -15,12 +15,11 @@ fi
 cp -R "$SRC_BUNDLE" "$OC_JCASC_BUNDLE"
 ```
 
-4. Navigate to `$OC_URL/cjoc/core-casc-bundles` and check the Bundle has been imported correctly
+4. Navigate to `$OC_URL/cjoc/core-casc-bundles` and check the Bundle has been imported correctlys
 5. In `$OC_URL/cjoc/core-casc-bundles` set Master/Team Path in the Operation Center JENKINS_HOME for the exiting or new Masters (e.g `/var/jenkins_home/jobs/Teams/jobs/team-example` => `Teams/team-example`)
 6. Once you click on Save in the Manasged MAster/Team Proviosing configuration page the following lement are added to the YAML
 
 ```yaml
-
 ---
 containers:
   - env:
