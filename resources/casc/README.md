@@ -7,8 +7,11 @@
 3. Import bundle into OC `$JENKINS-HOME/jcasc-bundles-store` using the importer job  
 
 ```sh
-SRC_BUNDLE="casc/bundle-2"
+SRC_BUNDLE="resources/casc/bundle-2"
 OC_JCASC_BUNDLE="$JENKINS_HOME/jcasc-bundles-store/carlosrodlop-bundle-2"
+if [ -d "$OC_JCASC_BUNDLE" ]; then
+  rm -rf $OC_JCASC_BUNDLE
+fi
 cp -R "$SRC_BUNDLE" "$OC_JCASC_BUNDLE"
 ```
 
