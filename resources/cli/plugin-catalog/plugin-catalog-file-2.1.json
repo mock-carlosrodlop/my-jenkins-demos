@@ -11,7 +11,7 @@
             },
             "includePlugins" : {
                 "beer": {
-                    "url" : "http://jenkins-updates.cloudbees.com/download/plugins/beer/1.1/beer.hpi"
+                    "url" : "http://jenkins-updates.cloudbees.com/download/plugins/beer/1.2/beer.hpi"
                 }
             }
         }
