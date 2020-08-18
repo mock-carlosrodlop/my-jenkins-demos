@@ -11,8 +11,7 @@ kubectl create configmap override-java-security --from-file java.config
 // Loading Shared Libraries
 library identifier: 'my-shared-libraries@demo', retriever: modernSCM(
   [$class: 'GitSCMSource',
-   remote: 'https://github.com/carlosrodlop/my-jenkins-demos.git',
-   credentialsId: '80ab8fca-fd75-479f-81ed-c769a9d07928'])
+   remote: 'https://github.com/carlosrodlop/my-jenkins-demos.git'])
 
 pipeline {
   agent {

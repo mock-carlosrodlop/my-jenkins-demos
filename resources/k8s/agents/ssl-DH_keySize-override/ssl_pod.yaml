@@ -1,14 +1,23 @@
-apiVersion: "v1"
-kind: "Pod"
+apiVersion: v1
+kind: Pod
 metadata:
   labels:
-    jenkins/label: "java-overwrite"
+    override-jnlp: true
 spec:
   containers:
-  - args:
-    - "cat"
+  - name: maven
+    image: maven
     command:
-    - "/bin/sh"
-    - "-c"
-    image: "maven:3.6.3-jdk-8"
-    name: "maven"
+    - cat
+    tty: true
+  - name: jnlp
+    image: cloudbees/cloudbees-core-agent
+    tty: true
+    volumeMounts:
+    - mountPath: /etc/crypto-policies/back-ends/java.config
+      subPath: java.config
+      name: override-java-security
+  volumes:
+  - name: override-java-security
+    configMap:
+        name: override-java-security
