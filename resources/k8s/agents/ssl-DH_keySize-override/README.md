@@ -17,7 +17,6 @@ pipeline {
   agent {
     kubernetes {
        defaultContainer "maven"
-       namespace "cje-support-general"
        yaml libraryResource("k8s/agents/ssl-DH_keySize-override/ssl_pod.yaml")
       }
   }
