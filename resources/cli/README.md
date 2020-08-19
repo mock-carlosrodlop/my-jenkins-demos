@@ -17,7 +17,17 @@ $> jenkins-cli -webSocket plugin-catalog --put < plugin-catalog-file.json
 {"id":"additional-funny-plugins","message":"Catalog updated correctly","status":"SUCCESS"}
 ```
 
-jenkins-cli plugin-catalog --push additional-funny-plugins --master crodriguezlopez
+## RBAC
+
+### List groups
+
+```sh
+$>  jenkins-cli list-groups root
+administrators
+users
+...
+viewer
+```
 
 ## Files
 
