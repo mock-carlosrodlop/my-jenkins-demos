@@ -60,6 +60,8 @@ volumes:
 ## Ref
 
 - [Configuration as Code (CasC) for Masters | CloudBees Docs](https://docs.cloudbees.com/docs/cloudbees-core/latest/cloud-admin-guide/core-casc-modern)
+- [Jenkins JcaC demos](https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/demos)
+- [Jenkins JcaC docs](https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/docs)
 
 ## Found issues
 

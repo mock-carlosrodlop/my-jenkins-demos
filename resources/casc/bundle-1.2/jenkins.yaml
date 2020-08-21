@@ -12,3 +12,6 @@ jenkins:
   - "JNLP4-connect"
   - "OperationsCenter2"
   - "Ping"
+  proxy:
+    name: "squid-proxy.cje-support-general.svc.cluster.local"
+    port: 3128
