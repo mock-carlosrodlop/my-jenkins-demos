@@ -1,0 +1,157 @@
+beekeeper:
+  enabled: true
+  securityWarnings:
+    enabledForCore: true
+    enabledForPlugins: true
+  upgrades:
+    autoDowngradePlugins: false
+    autoUpgradePlugins: false
+jenkins:
+  agentProtocols:
+  - "Diagnostic-Ping"
+  - "JNLP4-connect"
+  - "OperationsCenter2"
+  - "Ping"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  labelAtoms:
+  - name: "master"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 0
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  slaveAgentPort: 50000
+  updateCenter:
+    sites:
+    - id: "core-mm-offline"
+      url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
+    - id: "cap-core-mm"
+      url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: true
+  sSHD:
+    port: -1
+unclassified:
+  artifactManager:
+    artifactManagerFactories:
+    - "jSync"
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  defaultFolderConfiguration:
+    healthMetrics:
+    - worstChildHealthMetric:
+        recursive: true
+    - "averageChildHealthMetric"
+    - jobStatusHealthMetric:
+        countVirginJobs: false
+        failure: true
+        success: true
+        unbuilt: true
+        unstable: true
+    - "projectEnabledHealthMetric"
+  experimentalPlugins:
+    enabled: false
+  gitSCM:
+    createAccountBasedOnEmail: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "shared-library-devops"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              remote: "https://github.com/carlosrodlop/my-bucket.git"
+              traits:
+              - "gitBranchDiscovery"
+  hibernationConfiguration:
+    activities:
+    - "build"
+    - "web"
+    enabled: true
+    gracePeriod: 86400
+  pollSCM:
+    pollingThreadCount: 10
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - credentialsId: "sonar-scan-dev"
+      name: "sonar-dev"
+      serverUrl: "https://sonar-dev.devops.example-org.com"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
+    - credentialsId: "sonar-scan-pro"
+      name: "sonar"
+      serverUrl: "https://sonar.devops.example-org.com"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
+  usageStatisticsCloudBees:
+    usageStatisticsCollected: true
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  sonarRunnerInstallation:
+    installations:
+    - name: "sonar-scanner"
+      properties:
+      - installSource:
+          installers:
+          - sonarRunnerInstaller:
+              id: "4.3.0.2102"
+jobs:
+  - script: |
+      folder('project-a') {
+        displayName('Project A')
+        description('Folder for project A')
+      }
+
+      folder('project-a/testing') {
+        description('Folder containing all QA jobs for project A')
+      }
+groovy:
+  - script: |
+      import jenkins.model.Jenkins
+      import com.cloudbees.plugins.credentials.domains.Domain
+      import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
+      import com.cloudbees.plugins.credentials.CredentialsScope
+
+      instance = Jenkins.instance
+      domain = Domain.global()
+      store = instance.getExtensionList(
+        "com.cloudbees.plugins.credentials.SystemCredentialsProvider")[0].getStore()
+
+      usernameAndPassword = new UsernamePasswordCredentialsImpl(
+        CredentialsScope.GLOBAL,
+        "SECRET_NAME",
+        "SECRET_DESCRIPTION",
+        "USERNAME",
+        "PASSWORD"
+      )
+
+      store.addCredentials(domain, usernameAndPassword)
