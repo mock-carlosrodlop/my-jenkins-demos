@@ -119,6 +119,5 @@ plugins:
 - id: "authentication-tokens"
 - id: "pipeline-graph-analysis"
 - id: "git-client"
-- id: "datadog"
 - id: "jacoco"
 - id: "Office-365-Connector"
