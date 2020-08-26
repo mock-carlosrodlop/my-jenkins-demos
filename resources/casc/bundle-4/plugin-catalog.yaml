@@ -21,7 +21,6 @@ configurations:
     scriptler: {version: '3.1'}
     resource-disposer: {version: '0.14'}
     description-setter: {version: '1.10'}
-    template-project: {version: 1.5.2}
     ws-cleanup: {version: '0.38'}
     saml: {version: 1.1.6}
     sonar: {version: '2.11'}

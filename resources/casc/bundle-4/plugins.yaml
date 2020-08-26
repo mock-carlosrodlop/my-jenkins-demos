@@ -17,7 +17,6 @@ plugins:
 - {id: pipeline-stage-tags-metadata}
 - {id: sonar}
 - {id: pipeline-stage-step}
-- {id: template-project}
 - {id: docker-commons}
 - {id: workflow-scm-step}
 - {id: jsch}
