@@ -82,14 +82,14 @@ unclassified:
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
-    hookUrl: "https://oc.tools.net/carlosrodlop-mm-4/github-webhook/"
+    hookUrl: "https://core.gcp.support.beescloud.com/cjoc/carlosrodlop-mm-4/github-webhook/"
   gitSCM:
     createAccountBasedOnEmail: false
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: false
   location:
     adminAddress: "master<carlosrodlop-mm-4@test.net>"
-    url: "https://oc.tools.net/carlosrodlop-mm-4/"
+    url: "https://core.gcp.support.beescloud.com/cjoc/carlosrodlop-mm-4/"
   pollSCM:
     pollingThreadCount: 10
   usageStatisticsCloudBees:
