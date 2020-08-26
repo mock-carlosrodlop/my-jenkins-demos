@@ -294,7 +294,8 @@ Running from: /usr/share/jenkins/jenkins.war
 2020-08-26 15:44:42.834+0000 [id=70]	INFO	c.c.o.c.p.OperationsCenterRootAction$DescriptorImpl#setConnectedState: Connected
 2020-08-26 15:44:43.030+0000 [id=71]	INFO	c.c.j.p.a.r.e.PluginConfiguration$Tier3#lambda$expandWithValidation$2: Expanding plugin configuration (pipeline-maven)
 2020-08-26 15:44:43.129+0000 [id=71]	INFO	c.c.j.p.a.r.e.PluginConfiguration$Tier3#lambda$expandWithValidation$2: Expanding plugin configuration (slack)
-2020-08-26 15:44:43.146+0000 [id=71]	INFO	c.c.j.p.a.r.e.PluginConfiguration$Tier3#lambda$expandWithValidation$2: Expanding plugin configuration (saml)
+2020-08-26 15:44:43.146+0000 [i	at hudson.model.Descriptor.<init>(Descriptor.java:295)
+	at hudson.scm.SCMDescriptor.<init>(SCMDescriptor.java:71)d=71]	INFO	c.c.j.p.a.r.e.PluginConfiguration$Tier3#lambda$expandWithValidation$2: Expanding plugin configuration (saml)
 2020-08-26 15:44:43.159+0000 [id=69]	INFO	c.c.j.p.a.r.e.PluginConfiguration$Tier3#lambda$expandWithValidation$2: Expanding plugin configuration (h2-api)
 2020-08-26 15:44:43.334+0000 [id=69]	INFO	c.c.j.p.a.r.e.PluginConfiguration$Tier3#lambda$expandWithValidation$2: Expanding plugin configuration (pipeline-utility-steps)
 2020-08-26 15:44:43.446+0000 [id=69]	INFO	c.c.j.p.a.r.e.PluginConfiguration$Tier3#lambda$expandWithValidation$2: Expanding plugin configuration (groovy-postbuild)
