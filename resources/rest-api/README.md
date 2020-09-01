@@ -5,7 +5,8 @@
 Ref: https://docs.cloudbees.com/docs/admin-resources/latest/cli-guide/config-alias
 
 ```sh
-alias jenkins-rest='/path/to/jenkins-rest.sh'
+alias jenkins-rest-get='/path/to/jenkins-rest-get.sh'
+alias jenkins-rest-post='/path/to/jenkins-rest-post.sh'
 ```
 
 ## Depth control
@@ -27,7 +28,7 @@ curl --user $USER:$APITOKEN -H $(curl --user $USER:$APITOKEN [-H "CRUB"] $SERVER
 ### List groups
 
 ```sh
-$>  jenkins-rest groups/api/json?depth=1&tree=groups[name]
+$ jenkins-rest-get groups/api/json?depth=1&tree=groups[name]
 {
 _class: "nectar.plugins.rbac.groups.RootProxyGroupContainer",
 groups: [
@@ -50,3 +51,6 @@ name: "fbelzunc-viewer"
 
 ### Create groups
 
+```sh
+$ jenkins-rest-post "groups/createGroup/api/json?name=developers
+```
