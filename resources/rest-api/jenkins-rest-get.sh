@@ -1,7 +1,7 @@
 #!/bin/sh
 
-JENKINS_USER_ID=carlos
-JENKINS_API_TOKEN=111df9ff4565212a888e04c4763664bdee
-JENKINS_URL=https://core.gcp.support.beescloud.com/cjoc/
+JENKINS_USER_ID=user_example
+JENKINS_API_TOKEN=****
+JENKINS_URL=https://jenkins-example/cjoc/
 
 curl -v --user "${JENKINS_USER_ID}:${JENKINS_API_TOKEN}" "${JENKINS_URL}/$@"
