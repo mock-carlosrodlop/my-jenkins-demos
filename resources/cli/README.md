@@ -17,6 +17,14 @@ $> jenkins-cli -webSocket plugin-catalog --put < plugin-catalog-file.json
 {"id":"additional-funny-plugins","message":"Catalog updated correctly","status":"SUCCESS"}
 ```
 
+## Creating new folder
+
+```shell
+jenkins-cli create-job folder-a/folder-b < newFolder.xml
+```
+
+Note: folder a needs to be existing
+
 ## RBAC
 
 ### List groups
