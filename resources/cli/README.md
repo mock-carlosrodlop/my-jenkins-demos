@@ -23,7 +23,7 @@ $> jenkins-cli -webSocket plugin-catalog --put < plugin-catalog-file.json
 jenkins-cli create-job folder-a/folder-b < newFolder.xml
 ```
 
-Note: folder a needs to be existing
+Note: `folder-a` needs to be existing to create a subfolder from it
 
 ## RBAC
 
