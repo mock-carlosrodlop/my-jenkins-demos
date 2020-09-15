@@ -4,6 +4,6 @@ package groovy.jenkins
 
 import jenkins.model.Jenkins
 def message="foo"
-Jenkins jenkins = Jenkins.getInstance()
+Jenkins jenkins = Jenkins.instanceOrNull
 jenkins.setSystemMessage(message)
 jenkins.save()
