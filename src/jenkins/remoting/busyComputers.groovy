@@ -12,6 +12,7 @@ jenkins = Jenkins.instanceOrNull
 numIdleExecutors=0
 numBusyExecutors=0
 
+
 for (agent in jenkins.getNodes()) {
 	Computer computer = agent.computer
 	//Option 1
