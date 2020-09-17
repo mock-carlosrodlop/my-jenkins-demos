@@ -1,11 +1,11 @@
 type: "plugin-catalog"
 version: "1"
 name: "additional-plugins-1-1"
-displayName: "Test plugin catalog 1.1"
+displayName: "Fix License"
 configurations:
-- description: "Jenkins Plugins for testing plugin catalogs. For core 2.235.+ version 1.1"
+- description: "Fix License"
   prerequisites:
-    productVersion: "2.235.2.3"
+    productVersion: "2.164.3.2"
   includePlugins:
-    cloudbees-cloudfoundry-cli:
-      url: "https://jenkins-updates.cloudbees.com/download/plugins/cloudbees-cloudfoundry-cli/2.1.6/cloudbees-cloudfoundry-cli.hpi"
+    cloudbees-license:
+      url: "https://jenkins-updates.cloudbees.com/download/plugins/cloudbees-license/9.33.1/cloudbees-license.hpi"
