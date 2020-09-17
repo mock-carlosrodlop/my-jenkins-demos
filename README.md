@@ -1,5 +1,7 @@
 # My Jenkins Demos
 
+![](img/baywatch/Jenkins_Support_Baywatch.png)
+
 This repo contains code for **demos**
 
 * [Jenkinsfile](resources/pipelines)
