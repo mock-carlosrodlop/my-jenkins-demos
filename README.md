@@ -1,6 +1,6 @@
 # My Jenkins Demos
 
-![](img/baywatch/Jenkins_Support_Baywatch.png)
+![](img/baywatch/Jenkins_Support_Baywatch_flags.png)
 
 This repo contains code for **demos**
 
