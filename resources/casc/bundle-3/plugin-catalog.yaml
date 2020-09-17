@@ -1,25 +1,11 @@
 type: "plugin-catalog"
 version: "1"
-name: "ecustomer-casc-master"
-displayName: "Ecustomer casc master"
+name: "additional-plugins-1-1"
+displayName: "Test plugin catalog 1.1"
 configurations:
-- description: "Exported plugins"
+- description: "Jenkins Plugins for testing plugin catalogs. For core 2.235.+ version 1.1"
+  prerequisites:
+    productVersion: "2.235.2.3"
   includePlugins:
-    gitlab-api:
-      version: "1.0.6"
-    pipeline-aws:
-      version: "1.42"
-    gitlab-branch-source:
-      version: "1.5.1"
-    sonar:
-      version: "2.11"
-    configuration-as-code-secret-ssm:
-      version: "1.0.1"
-    job-dsl:
-      version: "1.77"
-    configuration-as-code-groovy:
-      version: "1.1"
-    devoptics:
-      version: "1.1863"
-    Office-365-Connector:
-      version: "4.13.0"
+    cloudbees-cloudfoundry-cli:
+      url: "https://jenkins-updates.cloudbees.com/download/plugins/cloudbees-cloudfoundry-cli/2.1.6/cloudbees-cloudfoundry-cli.hpi"

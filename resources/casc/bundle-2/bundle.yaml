@@ -1,6 +1,6 @@
 apiVersion: "1"
-id: "bundle2"
-description: "Bundle 2"
+id: "bundle1"
+description: "Bundle 1"
 version: "1"
 plugins:
   - "plugins.yaml"

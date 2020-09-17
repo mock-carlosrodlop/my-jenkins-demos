@@ -41,21 +41,15 @@ volumes:
 7. (Optional) In the case the master is exiting a retsrat is required
 8. Look at `kubectl log -f master-example-0` for troubleshooting once `Started container jenkins` is seen in the provisoing logs
 
-```log
-2020-06-19 17:34:55.632+0000 [id=25]	INFO	c.c.j.c.i.CJPPluginManager$StartUp$1#apply: Core Configuration as Code is enabled
-2020-06-19 17:34:55.633+0000 [id=25]	INFO	c.c.j.c.i.CJPPluginManager$StartUp$1#apply: Using JCasC config: /var/jenkins_home/core-casc-bundle/jenkins.yaml
-2020-06-19 17:35:00.036+0000 [id=25]	WARNING	c.c.j.c.i.ProfileSource#load: Plugin [release] from profile [com.cloudbees.jenkins.cjp.installmanager.ProfileSource$MultipleSource@80b40c6] not part of the envelope, ignoring
-2020-06-19 17:35:00.036+0000 [id=25]	WARNING	c.c.j.c.i.ProfileSource#load: Plugin [esr-reporter] from profile [com.cloudbees.jenkins.cjp.installmanager.ProfileSource$MultipleSource@80b40c6] not part of the envelope, ignoring
-...
-2020-06-19 17:35:00.064+0000 [id=25]	INFO	c.c.j.c.i.CJPPluginManager$URLInstaller#install: Requested [INSTALL] of plugin [configuration-as-code] to version [1.40] completed
-2020-06-19 17:35:00.065+0000 [id=25]	INFO	c.c.j.c.i.CJPPluginManager$URLInstaller#install: Requested [INSTALL] of plugin [workflow-durable-task-step] to version [2.35] completed
-...
-```
+See [logs](resources/casc/logs)
 
 ## Bundles
 
-- bundle-1 - Validated with CloudBees CI Managed Master 2.235.2.3-rolling
-- bundle-2 - Validated with CloudBees CI Managed Master 2.235.2.3-rolling
+- bundle-1 - Simplest use case
+- bundle-2 - Fixing plugins to specific versions
+- bundle-3 - Downloading plugin from url
+- bundle-4 - Groovy and job dsl
+- bundle-5 - Proxy
 
 ## Ref
 
