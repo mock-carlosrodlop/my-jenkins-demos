@@ -163,4 +163,14 @@ plugins:
   - {id: antisamy-markup-formatter}
   - {id: windows-slaves}
   - {id: timestamper}
-  - {id: structs}
+# Adding no CAP plugins for its installation
+  - {id: basic-branch-build-strategies}
+  - {id: pipeline-utility-steps}
+  - {id: maven-plugin}
+  - {id: ansible-tower}
+  - {id: sonar}
+  - {id: job-dsl}
+  - {id: gitlab-plugin}
+  - {id: h2-api}
+  - {id: pipeline-maven}
+  - {id: ansible}
