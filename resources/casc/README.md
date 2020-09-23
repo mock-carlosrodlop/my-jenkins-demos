@@ -45,9 +45,9 @@ See [logs](resources/casc/logs)
 
 ## Bundles
 
-- bundle-1 - Simplest use case
-- bundle-2 - Fixing plugins to specific versions
-- bundle-3 - Downloading plugin from url
+- bundle-1 - Simplest use case (only CAP plugins)
+- bundle-2 - Including NO CAP plugins (plugin catalog), Proxy
+- bundle-3 - Plugin catalo Downloading plugin from url
 - bundle-4 - Groovy and job dsl
 - bundle-5 - Proxy
 
