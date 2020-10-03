@@ -1,6 +1,6 @@
 //https://stackoverflow.com/questions/159148/groovy-executing-shell-commands
 
-package groovy.jenkins
+package jenkins
 
 //input
 def shCommand='ls var/jenkins_home'

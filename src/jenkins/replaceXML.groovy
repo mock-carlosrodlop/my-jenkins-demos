@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-package groovy.jenkins
+package jenkins
 
 import javax.xml.transform.stream.*
 import java.nio.charset.StandardCharsets

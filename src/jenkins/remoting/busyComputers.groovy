@@ -1,4 +1,4 @@
-package groovy.jenkins.remoting
+package jenkins.remoting
 
 import jenkins.model.*
 import hudson.model.*
