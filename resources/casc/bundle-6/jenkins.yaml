@@ -1,176 +1,124 @@
 ---
-beekeeper:
-  enabled: true
-  securityWarnings:
-    enabledForCore: true
-    enabledForPlugins: true
-  upgrades:
-    autoDowngradePlugins: true
-    autoUpgradePlugins: true
 jenkins:
   agentProtocols:
   - "Diagnostic-Ping"
   - "JNLP4-connect"
   - "OperationsCenter2"
   - "Ping"
+  clouds:
+  - kubernetes:
+      maxRequestsPerHost: 32
+      maxRequestsPerHostStr: "32"
+      name: "local"
+      templates:
+      - activeDeadlineSeconds: 150
+        activeDeadlineSecondsStr: "150"
+        hostNetwork: false
+        label: "local-default"
+        name: "local-default"
+        yaml: |-
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: kaniko
+          spec:
+            serviceAccountName: ops-gcr-rw
+            containers:
+            - name: "jnlp"
+              workingDir: "/tmp/jenkins"
+            - name: kaniko
+              # specific kaniko docker image as we don't want to use latest (relatively unstable)
+              image: gcr.io/kaniko-project/executor@sha256:9032eceeecf018328d3582324e982cdf7d6e022891801e62c0ad593f0209b442
+              command:
+              - /busybox/cat
+              tty: true
+              resources:
+                requests:
+                  memory: "1Gi"
+                  cpu: "1500m"
+                limits:
+                  memory: "2Gi"
+                  cpu: "3000m"
+              workingDir: "/tmp/jenkins"
+        yamlMergeStrategy: "override"
+        yamls:
+        - |-
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: kaniko
+          spec:
+            serviceAccountName: ops-gcr-rw
+            containers:
+            - name: "jnlp"
+              workingDir: "/tmp/jenkins"
+            - name: kaniko
+              # specific kaniko docker image as we don't want to use latest (relatively unstable)
+              image: gcr.io/kaniko-project/executor@sha256:9032eceeecf018328d3582324e982cdf7d6e022891801e62c0ad593f0209b442
+              command:
+              - /busybox/cat
+              tty: true
+              resources:
+                requests:
+                  memory: "1Gi"
+                  cpu: "1500m"
+                limits:
+                  memory: "2Gi"
+                  cpu: "3000m"
+              workingDir: "/tmp/jenkins"
+      webSocket: true
 kube:
   podTemplatesConfiguration:
     templates:
-      - name: "nd-aws-sam"
-        label: "alpine sam aws-sam"
-        annotations:
-          - key: "iam.amazonaws.com/role"
-            value: "arn:aws:iam::737635261618:role/_nd-cb-cbcore-configuration-worker-d1f1721f"
-        containers:
-          - name: "node10"
-            image: "node:10-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-          - name: "node12"
-            image: "node:12-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-          - name: "golang1-14"
-            image: "golang:1.14-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-            command: "cat"
-          - name: "golang1-13"
-            image: "golang:1.13-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-            command: "cat"
-          - name: "golang1-12"
-            image: "golang:1.12-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-            command: "cat"
-          - name: "aws-sam"
-            image: "737635261618.dkr.ecr.us-west-2.amazonaws.com/nbcwebops/eks/base/aws-sam:0.4.9"
-            alwaysPullImage: true
-            ttyEnabled: true
-        hostNetwork: false
-        nodeUsageMode: NORMAL
-        showRawYaml: false
-        volumes:
-          - emptyDirVolume:
-              memory: false
-              mountPath: "/var/lib/docker"
-        yamlMergeStrategy: "override"
-      - name: "nd-lean"
-        label: "lean"
-        annotations:
-          - key: "iam.amazonaws.com/role"
-            value: "arn:aws:iam::737635261618:role/_nd-cb-cbcore-configuration-worker-d1f1721f"
-        containers:
-          - name: "node12"
-            image: "node:12-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-          - name: "golang1-14"
-            image: "golang:1.14-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-            command: "cat"
-          - name: "deployinator"
-            image: "737635261618.dkr.ecr.us-west-2.amazonaws.com/nbcwebops/eks/base/deployinator:0.1.0"
-            alwaysPullImage: true
-            ttyEnabled: true
-            envVars:
-              - key: "DOCKER_HOST"
-                value: "tcp://localhost:2375"
-          - name: "docker-daemon"
-            image: "docker:19.03.6-dind"
-            alwaysPullImage: true
-            envVars:
-              - key: "DOCKER_TLS_CERTDIR"
-                value: ""
-            privileged: true
-            resourceLimitCpu: "2"
-            resourceLimitMemory: "8Gi"
-            resourceRequestCpu: "1"
-            resourceRequestMemory: "1Gi"
-            ttyEnabled: true
-        hostNetwork: false
-        nodeUsageMode: NORMAL
-        showRawYaml: false
-        volumes:
-          - emptyDirVolume:
-              memory: false
-              mountPath: "/var/lib/docker"
-        yamlMergeStrategy: "override"
-      - name: "nd-multibuilder"
-        label: "buildbox bi alpine serverless nd-multibuilder"
-        annotations:
-          - key: "iam.amazonaws.com/role"
-            value: "arn:aws:iam::737635261618:role/_nd-cb-cbcore-configuration-worker-d1f1721f"
-        containers:
-          - name: "node8"
-            image: "node:8-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-            runAsGroup: "1000"
-            runAsUser: "1000"
-          - name: "node10"
-            image: "node:10-alpine"
-            alwaysPullImage: true
-            ttyEnabled: true
-            runAsGroup: "1000"
-            runAsUser: "1000"
-          - name: "alpine-deploy-builder"
-            image: "737635261618.dkr.ecr.us-east-1.amazonaws.com/nbcwebops/eks/base/alpine-deploy-builder:2"
-            alwaysPullImage: true
-            ttyEnabled: true
-            runAsGroup: "1000"
-            runAsUser: "1000"
-        hostNetwork: false
-        nodeUsageMode: NORMAL
-        showRawYaml: false
-        volumes:
-          - emptyDirVolume:
-              memory: false
-              mountPath: "/var/lib/docker"
-        yamlMergeStrategy: "override"
-      - name: "cbcore-configuration-buildbox"
-        label: "buildbox default docker dind java gradle python terraform terragrunt skaffold"
-        annotations:
-          - key: "iam.amazonaws.com/role"
-            value: "arn:aws:iam::737635261618:role/_nd-cb-cbcore-configuration-worker-d1f1721f"
-        envVars:
-          - key: "DOCKER_TLS_CERTDIR"
-            value: ""
-          - key: "DOCKER_HOST"
-            value: "tcp://localhost:2375"
-        containers:
-          - name: "buildbox"
-            image: "737635261618.dkr.ecr.us-east-1.amazonaws.com/webops-buildbox:v0.6.3"
-            alwaysPullImage: true
-            command: "sleep"
-            args: "99d"
-            ttyEnabled: true
-            workingDir: "/home/jenkins/agent"
-            runAsGroup: "1000"
-            runAsUser: "1000"
-          - name: "docker-daemon"
-            image: "docker:19.03.6-dind"
-            privileged: true
-            resourceLimitCpu: "2"
-            resourceLimitMemory: "8Gi"
-            resourceRequestCpu: "1"
-            resourceRequestMemory: "1Gi"
-            ttyEnabled: true
-            workingDir: "/home/jenkins/agent"
-        hostNetwork: false
-        serviceAccount: "jenkins"
-        podRetention: "onFailure"
-        nodeUsageMode: NORMAL
-        slaveConnectTimeout: 300
-        slaveConnectTimeoutStr: "300"
-        # idleMinutes: 5
-        # idleMinutesStr: "5"
-        # showRawYaml: false
-        volumes:
-          - emptyDirVolume:
-              memory: false
-              mountPath: "/var/lib/docker"
-        yamlMergeStrategy: "override"
+    - containers:
+      - alwaysPullImage: true
+        args: "/bin/sh /var/jenkins_config/jenkins-agent"
+        image: "dohbedoh/jenkins-dind-agent:18.09-alpine"
+        livenessProbe:
+          failureThreshold: 0
+          initialDelaySeconds: 0
+          periodSeconds: 0
+          successThreshold: 0
+          timeoutSeconds: 0
+        name: "jnlp"
+        privileged: true
+        resourceLimitCpu: "1"
+        resourceLimitMemory: "2048Mi"
+        resourceRequestCpu: "0.4"
+        resourceRequestMemory: "1433Mi"
+        ttyEnabled: true
+        workingDir: "/home/jenkins"
+      hostNetwork: false
+      idleMinutes: 1
+      idleMinutesStr: "1"
+      label: "dind"
+      name: "dind"
+      volumes:
+      - configMapVolume:
+          configMapName: "jenkins-agent"
+          mountPath: "/var/jenkins_config"
+          optional: false
+      yamlMergeStrategy: "override"
+    - containers:
+      - alwaysPullImage: true
+        args: "cat"
+        command: "/bin/sh -c"
+        image: "polinux/stress"
+        livenessProbe:
+          failureThreshold: 0
+          initialDelaySeconds: 0
+          periodSeconds: 0
+          successThreshold: 0
+          timeoutSeconds: 0
+        name: "stress"
+        privileged: true
+        resourceLimitMemory: "10Mi"
+        resourceRequestMemory: "10Mi"
+        ttyEnabled: true
+        workingDir: "/home/jenkins/agent"
+      hostNetwork: false
+      instanceCap: 2
+      instanceCapStr: "2"
+      label: "zd77312"
+      name: "zd77312-pod"
+      yamlMergeStrategy: "override"

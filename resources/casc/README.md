@@ -50,6 +50,7 @@ See [logs](resources/casc/logs)
 - bundle-3 - Plugin catalo Downloading plugin from url
 - bundle-4 - Groovy and job dsl
 - bundle-5 - Proxy
+- bundle-6 - Kubernetes Cloud and Agent Templates
 
 ## Ref
 
