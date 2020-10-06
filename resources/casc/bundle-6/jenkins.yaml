@@ -11,61 +11,6 @@ jenkins:
       maxRequestsPerHostStr: "32"
       name: "local"
       templates:
-      - activeDeadlineSeconds: 150
-        activeDeadlineSecondsStr: "150"
-        hostNetwork: false
-        label: "local-default"
-        name: "local-default"
-        yaml: |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: kaniko
-          spec:
-            serviceAccountName: ops-gcr-rw
-            containers:
-            - name: "jnlp"
-              workingDir: "/tmp/jenkins"
-            - name: kaniko
-              # specific kaniko docker image as we don't want to use latest (relatively unstable)
-              image: gcr.io/kaniko-project/executor@sha256:9032eceeecf018328d3582324e982cdf7d6e022891801e62c0ad593f0209b442
-              command:
-              - /busybox/cat
-              tty: true
-              resources:
-                requests:
-                  memory: "1Gi"
-                  cpu: "1500m"
-                limits:
-                  memory: "2Gi"
-                  cpu: "3000m"
-              workingDir: "/tmp/jenkins"
-        yamlMergeStrategy: "override"
-        yamls:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: kaniko
-          spec:
-            serviceAccountName: ops-gcr-rw
-            containers:
-            - name: "jnlp"
-              workingDir: "/tmp/jenkins"
-            - name: kaniko
-              # specific kaniko docker image as we don't want to use latest (relatively unstable)
-              image: gcr.io/kaniko-project/executor@sha256:9032eceeecf018328d3582324e982cdf7d6e022891801e62c0ad593f0209b442
-              command:
-              - /busybox/cat
-              tty: true
-              resources:
-                requests:
-                  memory: "1Gi"
-                  cpu: "1500m"
-                limits:
-                  memory: "2Gi"
-                  cpu: "3000m"
-              workingDir: "/tmp/jenkins"
       webSocket: true
 kube:
   podTemplatesConfiguration:
@@ -119,6 +64,6 @@ kube:
       hostNetwork: false
       instanceCap: 2
       instanceCapStr: "2"
-      label: "zd77312"
-      name: "zd77312-pod"
+      label: "example"
+      name: "example-pod"
       yamlMergeStrategy: "override"
