@@ -1,0 +1,9 @@
+id: "bundle1"
+version: "1"
+description: "A simple bundle that sets up a master with casc"
+plugins:
+  - "plugins.yaml"
+jcasc:
+  - "jenkins.yaml"
+catalog:
+  - "plugin-catalog.yaml"

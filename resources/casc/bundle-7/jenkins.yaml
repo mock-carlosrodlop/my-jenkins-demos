@@ -1,0 +1,142 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          description: "thrinath_panduga_github"
+          id: "thrinath_panduga_github"
+          password: "{AQAAABAAAAAwJq2u3DDNSNy/H718VmETZzHuXpjkp9i4iQU83F0DrS7Un5JB19+85eNkH1IKgDw2SEkV8RuniNBpunfOfRvATw==}"
+          scope: GLOBAL
+          username: "thrinath_panduga@apple.com"
+      - usernamePassword:
+          description: "thrinath_panduga_test1"
+          id: "thrinath_panduga_test1"
+          password: "{AQAAABAAAAAwlbkx1EMovtU74Gs1escxlYxDsRg0ltq6O2ZZ7UsgWVtV5Dm9DAqkEMcFD4R9iD6HZI+fh+os/SxCRhAxDdpwgQ==}"
+          scope: GLOBAL
+          username: "thrinath_panduga@apple.com"
+jenkins:
+  agentProtocols:
+  - "Diagnostic-Ping"
+  - "JNLP4-connect"
+  - "OperationsCenter2"
+  - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  disableRememberMe: false
+  disabledAdministrativeMonitors:
+  - "com.cloudbees.jenkins.support.impl.cloudbees.TcpSlaveAgentListenerMonitor"
+  labelAtoms:
+  - name: "master"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 5
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  proxy:
+    name: "proxy.config.pcp.local"
+    noProxyHost: |-
+      cjoc.ci-tools.svc.cluster.local
+      github.pie.apple.com
+      aos-cid.g.apple.com
+      aos-cid.ci-tools.svc.cluster.local
+      aos-cit.g.apple.com
+      aos-cit.ci-tools.svc.cluster.local
+      artifacts.apple.com
+      aos-bint.corp.apple.com
+      aos-bind.g.apple.com
+    port: 3128
+    secretPassword: "{AQAAABAAAAAQao6HPHTL3oK6eZrjx6Yb3YEsuE3DqyMBafkxVwmte1A=}"
+    testUrl: "https://jenkins-updates.cloudbees.com/"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm: "operationsCenter"
+  slaveAgentPort: 50000
+  updateCenter:
+    sites:
+    - id: "core-mm-offline"
+      url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
+    - id: "cap-core-mm"
+      url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+beekeeper:
+  enabled: true
+  securityWarnings:
+    enabledForCore: true
+    enabledForPlugins: true
+  upgrades:
+    autoDowngradePlugins: false
+    autoUpgradePlugins: false
+notificationConfiguration:
+  enabled: false
+security:
+  anonymizeSupportBundle:
+    enabled: false
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  sSHD:
+    port: -1
+unclassified:
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  # casCGlobalConfig:
+  #   configurationPath: "/var/jenkins_home/config.yaml"
+  defaultFolderConfiguration:
+    healthMetrics:
+    - worstChildHealthMetric:
+        recursive: true
+    - "averageChildHealthMetric"
+    - jobStatusHealthMetric:
+        countVirginJobs: false
+        failure: true
+        success: true
+        unbuilt: true
+        unstable: true
+    - "projectEnabledHealthMetric"
+  experimentalPlugins:
+    enabled: false
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "https://aos-cid.g.apple.com/rj03/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "https://aos-cid.g.apple.com/rj03/"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  operationsCenterRootAction:
+    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAB3KQQ6DIBBA0bvMugMGpwW9DU6h1UxKA6Mb491Lunz5/4RXjR+FGXyaKCcKSAt7\r\
+      \nJHJ3DOMjo+fB5yUnF8MEN1if/XVYt2Hs2qt0vlW/s7W8FTa8opYizbSjQ/amqRopHOXfLVw/Odou\r\
+      \nuXMAAAA=\r\n----- END CONNECTION DETAILS -----\n"
+  pollSCM:
+    pollingThreadCount: 10
+  usageStatisticsCloudBees:
+    usageStatisticsCollected: true
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
