@@ -40,21 +40,21 @@ jenkins:
     all:
       name: "all"
   projectNamingStrategy: "standard"
-  proxy:
-    name: "proxy.config.pcp.local"
-    noProxyHost: |-
-      cjoc.ci-tools.svc.cluster.local
-      github.pie.apple.com
-      aos-cid.g.apple.com
-      aos-cid.ci-tools.svc.cluster.local
-      aos-cit.g.apple.com
-      aos-cit.ci-tools.svc.cluster.local
-      artifacts.apple.com
-      aos-bint.corp.apple.com
-      aos-bind.g.apple.com
-    port: 3128
-    secretPassword: "{AQAAABAAAAAQao6HPHTL3oK6eZrjx6Yb3YEsuE3DqyMBafkxVwmte1A=}"
-    testUrl: "https://jenkins-updates.cloudbees.com/"
+  # proxy:
+  #   name: "proxy.config.pcp.local"
+  #   noProxyHost: |-
+  #     cjoc.ci-tools.svc.cluster.local
+  #     github.pie.apple.com
+  #     aos-cid.g.apple.com
+  #     aos-cid.ci-tools.svc.cluster.local
+  #     aos-cit.g.apple.com
+  #     aos-cit.ci-tools.svc.cluster.local
+  #     artifacts.apple.com
+  #     aos-bint.corp.apple.com
+  #     aos-bind.g.apple.com
+  #   port: 3128
+  #   secretPassword: "{AQAAABAAAAAQao6HPHTL3oK6eZrjx6Yb3YEsuE3DqyMBafkxVwmte1A=}"
+  #   testUrl: "https://jenkins-updates.cloudbees.com/"
   quietPeriod: 5
   remotingSecurity:
     enabled: true
@@ -115,15 +115,15 @@ unclassified:
     storage: "file"
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
-  gitHubPluginConfig:
-    hookUrl: "https://aos-cid.g.apple.com/rj03/github-webhook/"
+  # gitHubPluginConfig:
+  #   hookUrl: "https://aos-cid.g.apple.com/rj03/github-webhook/"
   gitSCM:
     createAccountBasedOnEmail: false
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: false
-  location:
-    adminAddress: "address not configured yet <nobody@nowhere>"
-    url: "https://aos-cid.g.apple.com/rj03/"
+  # location:
+  #   adminAddress: "address not configured yet <nobody@nowhere>"
+  #   url: "https://aos-cid.g.apple.com/rj03/"
   mailer:
     charset: "UTF-8"
     useSsl: false
