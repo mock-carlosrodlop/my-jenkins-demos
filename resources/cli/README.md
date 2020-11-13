@@ -37,9 +37,22 @@ users
 viewer
 ```
 
-## Files
+## Migrate credentials to a different domain
 
-* plugin-catalog-file-2.1.json - Validated with CloudBees CI Managed Master 2.235.2.3-rolling
+Ref: https://docs.cloudbees.com/docs/cloudbees-ci/latest/cje1-to-ci/#migrate-credentials
+
+Export from the Root
+
+```sh
+$>  jenkins-cli list-credentials-as-xml system::system::jenkins > credentials/credentials.xml
+```
+
+Import from the targetFolder
+
+```sh
+targetFolder="dse-team-na/carlosr"
+jenkins-cli import-credentials-as-xml folder::item::${targetFolder} < credentials/credentials.xml
+```
 
 ## Ref
 
