@@ -45,7 +45,7 @@ See [logs](resources/casc/logs)
 
 ## Bundles
 
-- bundle-1 - Simplest use case (only CAP plugins)
+- bundle-1 - CAP, Cloudbess Monitoring
 - bundle-2 - Including NO CAP plugins (plugin catalog), Proxy
 - bundle-3 - Plugin catalo Downloading plugin from url
 - bundle-4 - Groovy and job dsl

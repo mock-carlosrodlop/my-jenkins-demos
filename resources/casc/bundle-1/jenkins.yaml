@@ -12,3 +12,26 @@ jenkins:
   - "JNLP4-connect"
   - "OperationsCenter2"
   - "Ping"
+unclassified:
+  alerter:
+    conditionList:
+    - localMetricGauge:
+        alertAfter: "5sec"
+        gaugeName: "jenkins.executor.in-use.value"
+        inclusive: false
+        max: 35.0
+        name: "Executor in use"
+        recipientList:
+        - email:
+            emailAddresses: "example.user@cloudbees.com"
+            subjectPrefix: "[Jenkins Alert: Executor in use]"
+    - localMetricGauge:
+        alertAfter: "5sec"
+        gaugeName: "jenkins.queue.size.value"
+        inclusive: false
+        max: 50.0
+        name: "Queue size"
+        recipientList:
+        - email:
+            emailAddresses: "example.user@cloudbees.com"
+            subjectPrefix: "[Jenkins Alert: Queue size]"
