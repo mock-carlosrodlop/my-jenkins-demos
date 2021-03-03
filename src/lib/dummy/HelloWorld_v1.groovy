@@ -6,7 +6,7 @@ package lib.dummy
 def greating (msg) {  
     stage("Hello") {
         println( "${msg}")
-        sh ('echo $msg')      
+        sh ('echo ${msg}')      
     }
 }
 
