@@ -4,9 +4,9 @@
 
 import lib.dummy.HelloWorld_v1
 
-def g 
+def g
+g = new HelloWorld_v1()
 
-node ("master") {
-    g = new HelloWorld_v1()
-    g.greating ("Hola")
-}
+
+
+

@@ -4,10 +4,8 @@
 package lib.dummy
 
 def greating (msg) {  
-    stage("Hello") {
-        println( "${msg}")
-        sh ('echo $msg')      
-    }
+    println( "${msg}")
+    sh "echo ${msg}"
 }
 
 return this
