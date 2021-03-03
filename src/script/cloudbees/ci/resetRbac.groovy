@@ -1,4 +1,4 @@
-﻿package cloudbees.ci
+﻿package script.cloudbees.ci
 
 import nectar.plugins.rbac.strategy.RoleMatrixAuthorizationPlugin;
 

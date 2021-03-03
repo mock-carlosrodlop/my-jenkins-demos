@@ -1,4 +1,4 @@
-package jenkins
+package script.jenkins
 
 def xml = new XmlSlurper().parse('/Users/carlosrodlop/Support/cases/44422/configToTest.xml')
 xml.depthFirst().findAll() {v ->

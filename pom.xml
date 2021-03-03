@@ -2,75 +2,69 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
     <modelVersion>4.0.0</modelVersion>
     <groupId>carlosrodlop.com</groupId>
     <artifactId>my-jenkins-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <!-- Unified Release: -->
     <properties>
-        <jenkinsOssVersion>2.249.1-cb-2</jenkinsOssVersion>
-        <opscenterVersion>2.249.0.1</opscenterVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- May be overridden to be, e.g., 2.99-SNAPSHOT if you have `mvn deploy`ed an unreleased version of core: -->
+        <jenkins.version>2.62</jenkins.version>
+        <!-- May be overridden to be, e.g., 2.99-20171231.120000-1 (here you pick the precise jenkins-core.jar version you deployed): -->
+        <jenkins-core.version>${jenkins.version}</jenkins-core.version>
+        <!-- May be overridden to be, e.g., 2.99-20171231.120115-1 (for jenkins.war; unfortunately Maven does not pick consistent timestamps in a multimodule reactor): -->
+        <jenkins-war.version>${jenkins.version}</jenkins-war.version>
+        <blueocean.version>1.24.3</blueocean.version>
+        <bluesteel.version>1.2.36</bluesteel.version>
+        <jenkins-ha.version>4.27</jenkins-ha.version>
+        <pipeline-model-definition.version>1.7.2</pipeline-model-definition.version>
+        <master-provisioning.version>2.5.20</master-provisioning.version>
+        <pipeline-stage-view.version>2.15</pipeline-stage-view.version>
+        <declarative-pipeline-migration-assistant.version>1.5.1</declarative-pipeline-migration-assistant.version>
+        <download.sources.phase>compile</download.sources.phase>
+        <copy.licenses.phase>process-resources</copy.licenses.phase>
+        <parse.license.phase>process-resources</parse.license.phase>
+        <read.properties.phase>process-resources</read.properties.phase>
+        <!--Operation Center Server-->
+        <cloudbees.operations-center.server.version>2.263.0.1</cloudbees.operations-center.server.version>
     </properties>
-
+    <!--
+    Version (select tag) - Parent. Eg: https://github.com/cloudbees/unified-release/blob/unified-release-2.263.2.3/pom.xml
+    Artifacts per product (select tag) - Product. Eg: oc-traditional: https://github.com/cloudbees/unified-release/blob/unified-release-2.263.2.3/products/core-oc-traditional/pom.xml
+    -->
     <dependencies>
         <dependency>
             <groupId>org.jenkins-ci.main</groupId>
-            <artifactId>jenkins-parent</artifactId>
-            <version>${jenkinsOssVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.cloudbees.operations-center.client</groupId>
-            <artifactId>operations-center-parent-client</artifactId>
-            <version>${opscenterVersion}</version>
+            <artifactId>jenkins-core</artifactId>
+            <version>${jenkins-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.cloudbees.operations-center.common</groupId>
             <artifactId>operations-center-context</artifactId>
-            <version>${opscenterVersion}</version>
+            <version>${cloudbees.operations-center.server.version}</version>
         </dependency>
         <dependency>
             <groupId>com.cloudbees.operations-center.server</groupId>
             <artifactId>operations-center-server</artifactId>
-            <version>${opscenterVersion}</version>
+            <version>${cloudbees.operations-center.server.version}</version>
         </dependency>
         <dependency>
             <groupId>com.cloudbees.operations-center.server</groupId>
             <artifactId>operations-center-jnlp-controller</artifactId>
-            <version>${opscenterVersion}</version>
+            <version>${cloudbees.operations-center.server.version}</version>
         </dependency>
         <dependency>
             <groupId>com.cloudbees.operations-center.server</groupId>
             <artifactId>operations-center-clusterops</artifactId>
-            <version>${opscenterVersion}</version>
+            <version>${cloudbees.operations-center.server.version}</version>
         </dependency>
         <dependency>
             <groupId>com.cloudbees.operations-center.client</groupId>
             <artifactId>operations-center-cloud</artifactId>
-            <version>${opscenterVersion}</version>
+            <version>${cloudbees.operations-center.server.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.cloudbees.operations-center.server</groupId>
-            <artifactId>operations-center-jnlp-controller</artifactId>
-            <version>${opscenterVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.cloudbees.operations-center.common</groupId>
-            <artifactId>operations-center-context</artifactId>
-            <version>${opscenterVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.cloudbees.tiger.plugins</groupId>
-            <artifactId>master-provisioning-parent</artifactId>
-            <version>2.5.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.cloudbees.tiger.plugins</groupId>
-            <artifactId>master-provisioning-parent</artifactId>
-            <version>2.5.9</version>
-        </dependency>
-
-
     </dependencies>
-
 </project>

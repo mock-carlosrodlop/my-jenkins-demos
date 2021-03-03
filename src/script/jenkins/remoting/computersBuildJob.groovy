@@ -1,4 +1,4 @@
-package jenkins.remoting
+package script.jenkins.remoting
 
 import jenkins.model.*
 import hudson.model.*

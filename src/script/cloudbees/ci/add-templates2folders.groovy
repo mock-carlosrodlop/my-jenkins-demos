@@ -6,7 +6,7 @@ Templates need to at the same node level of pFolder or highest level in terms of
 Parameters: pFolders
 */
 
-package cloudbees.ci
+package script.cloudbees.ci
 
 import com.cloudbees.hudson.plugins.modeling.Model
 import com.cloudbees.hudson.plugins.folder.Folder

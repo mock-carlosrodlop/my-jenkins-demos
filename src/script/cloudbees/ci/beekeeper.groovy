@@ -1,4 +1,4 @@
-package cloudbees.ci
+package script.cloudbees.ci
 
 import com.cloudbees.jenkins.plugins.assurance.CloudBeesAssurance
 import com.cloudbees.jenkins.plugins.assurance.model.Beekeeper

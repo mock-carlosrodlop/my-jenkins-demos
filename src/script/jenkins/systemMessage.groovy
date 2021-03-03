@@ -1,6 +1,6 @@
 //https://stackoverflow.com/questions/159148/groovy-executing-shell-commands
 
-package jenkins
+package script.jenkins
 
 import jenkins.model.Jenkins
 def message="foo"
