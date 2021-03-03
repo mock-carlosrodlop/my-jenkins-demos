@@ -8,7 +8,7 @@ def greating (input) {
     msg = "${input}"
     stage("Hello") {
         println("${msg}")
-        sh ('echo \"${msg}\"') 
+        sh ('echo \"$msg\"') 
     }
 }
 
