@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage ("Greatings"){
+            steps{
+                echo "Hello World!"
+                sh "exit 0"
+            }
+        }
+    }
+}
