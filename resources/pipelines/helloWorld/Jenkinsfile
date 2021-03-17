@@ -1,4 +1,4 @@
-def testValue = 4
+def testValue = 5
 
 pipeline {
     agent any
